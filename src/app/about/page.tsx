@@ -4,7 +4,7 @@ import { FaCode, FaUserAlt, FaProjectDiagram } from 'react-icons/fa';
 
 const AboutSection = () => {
   return (
-    <section className="bg-gray-50 py-16 px-6 lg:px-20">
+    <section className="bg-gray-50 py-16 px-6 lg:px-20 max-w-screen-2xl mx-auto">
       {/* About Company Section */}
       <div className="flex flex-wrap items-center justify-between mb-16">
         <div className="w-full lg:w-1/2 space-y-4">

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const EditorPickSection = () => {
   return (
-    <div className="bg-gray-100 py-20">
+    <div className="bg-gray-100 py-20 max-w-screen-2xl mx-auto">
       {/* Editor's Pick Text */}
       <div className="text-center mb-8">
         <h2 className="text-4xl font-bold text-gray-800">Editor&apos;s Pick</h2>

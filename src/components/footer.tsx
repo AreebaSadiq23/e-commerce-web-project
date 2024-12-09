@@ -3,11 +3,11 @@ import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 py-12 px-4">
+    <footer className="bg-gray-100 py-12 px-4 max-w-screen-2xl mx-auto">
       {/* Footer Top with Logo and Social Icons */}
-      <div className="max-w-screen-xl mx-auto flex justify-between items-center mb-12">
+      <div className="max-w-screen-xl mx-auto flex flex-col sm:flex-row justify-between items-center mb-12">
         {/* Brand Logo */}
-        <div className="text-3xl font-semibold">
+        <div className="text-3xl font-semibold mb-4 sm:mb-0">
           <span className="text-black">Bandage</span>
         </div>
 
@@ -53,7 +53,7 @@ const Footer = () => {
         <div>
           <h4 className="text-xl font-semibold mb-4">Features</h4>
           <ul className="space-y-2 text-sm">
-            <li>Buisness and Marketing</li>
+            <li>Business and Marketing</li>
             <li>User Analytics</li>
             <li>Live Chat</li>
             <li>Unlimited Support</li>
@@ -64,7 +64,7 @@ const Footer = () => {
         <div>
           <h4 className="text-xl font-semibold mb-4">Resources</h4>
           <ul className="space-y-2 text-sm">
-            <li>IOS and Andriod</li>
+            <li>iOS and Android</li>
             <li>Watch a Demo</li>
             <li>Customer</li>
             <li>API</li>

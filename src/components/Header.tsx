@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gray-100 shadow-md">
+    <header className="bg-gray-100 shadow-md max-w-screen-2xl mx-auto">
       <div className="flex justify-between items-center py-4 px-6">
         {/* Logo */}
         <div className="text-2xl font-bold text-gray-800">Bandage</div>

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const CardSection = () => {
   return (
-    <div className="bg-gray-100 py-20">
+    <div className="bg-gray-100 py-20 max-w-screen-2xl mx-auto">
       {/* Section Title */}
       <div className="text-center mb-8">
         <h2 className="text-4xl font-bold text-gray-800">Featured Cards</h2>

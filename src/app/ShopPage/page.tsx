@@ -9,7 +9,7 @@ import {
 
 const ShopPage = () => {
   return (
-    <div className="container mx-auto my-12 px-4">
+    <div className="container mx-auto my-12 px-4 max-w-screen-2xl">
       {/* Header Section */}
       <div className="flex justify-between items-center mb-6">
         {/* Left Heading */}

@@ -3,7 +3,7 @@ import { FaCheck, FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-i
 
 const PricingSection: React.FC = () => {
   return (
-    <div className="bg-gray-50 py-20 px-6">
+    <div className="bg-gray-50 py-20 px-6 max-w-screen-2xl mx-auto">
       {/* Pricing Header */}
       <div className="text-center">
         <h3 className="text-lg text-blue-600 font-medium">Pricing</h3>

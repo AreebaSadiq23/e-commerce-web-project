@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const FeaturedSection = () => {
   return (
-    <div className="py-20 px-4 bg-gray-50">
+    <div className="py-20 px-4 bg-gray-50 max-w-screen-2xl mx-auto">
       {/* Practice Advice Section */}
       <div className="text-center mb-12">
         <h3 className="text-xl font-semibold text-blue-600">Practice Advice</h3>

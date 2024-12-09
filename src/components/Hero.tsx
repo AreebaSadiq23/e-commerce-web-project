@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const HeroSection = () => {
   return (
-    <div className="relative bg-blue-100 py-56">
+    <div className="relative bg-blue-100 py-56 max-w-screen-2xl mx-auto">
       <div className="absolute inset-0 w-full h-full">
         <Image
           src="/hero/img.png"

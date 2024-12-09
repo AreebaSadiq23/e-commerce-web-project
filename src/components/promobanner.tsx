@@ -3,7 +3,7 @@ import { FaPhoneAlt, FaEnvelope, FaInstagram, FaYoutube, FaFacebook, FaTwitter }
 
 const PromoBanner = () => {
   return (
-    <div className="bg-gray-800 text-white px-4 py-3 items-center justify-between flex-wrap hidden sm:flex">
+    <div className="bg-gray-800 text-white px-4 py-3 items-center justify-between flex-wrap hidden sm:flex max-w-screen-2xl mx-auto">
       {/* Left Section */}
       <div className="flex items-center space-x-6 ml-6">
         {/* Phone Icon and Number */}
