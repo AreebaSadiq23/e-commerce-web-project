@@ -31,7 +31,7 @@ const FeaturedSection = () => {
             New
           </span>
           <div className="p-4">
-            <h4 className="text-xl font-semibold text-gray-800 mt-6">Lodest &apos;a la Madison #1</h4>
+            <h4 className="text-xl font-semibold text-gray-800 mt-6">Lodest la Madison #1</h4>
             <p className="mt-6">We focus on ergonomic design and meeting you where you work. It's only a keystroke away.</p>
             <div className="flex justify-between items-center text-sm text-gray-500 mt-2">
               <div className="flex items-center mt-6">
@@ -62,7 +62,7 @@ const FeaturedSection = () => {
             New
           </span>
           <div className="p-4">
-            <h4 className="text-xl font-semibold text-gray-800 mt-6">Lodest &apos;a la Madison #1</h4>
+            <h4 className="text-xl font-semibold text-gray-800 mt-6">Lodest la Madison #1</h4>
             <p className="mt-6">We focus on ergonomic design and meeting you where you work. It's only a keystroke away.</p>
             <div className="flex justify-between items-center text-sm text-gray-500 mt-2">
               <div className="flex items-center mt-6">
@@ -93,7 +93,7 @@ const FeaturedSection = () => {
             New
           </span>
           <div className="p-4">
-            <h4 className="text-xl font-semibold text-gray-800 mt-6">Lodest &apos;a la Madison #1</h4>
+            <h4 className="text-xl font-semibold text-gray-800 mt-6">Lodest la Madison #1</h4>
             <p className="mt-6">We focus on ergonomic design and meeting you where you work. It's only a keystroke away.</p>
             <div className="flex justify-between items-center text-sm text-gray-500 mt-2">
               <div className="flex items-center mt-6">
