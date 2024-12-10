@@ -3,10 +3,13 @@ import Image from 'next/image';
 
 const CardSection = () => {
   return (
-    <div className="bg-gray-100 py-20 max-w-screen-2xl mx-auto">
-      {/* Section Title */}
-      <div className="text-center mb-8">
-        <h2 className="text-4xl font-bold text-gray-800">Featured Cards</h2>
+    <div className="py-20 px-4 bg-gray-50 max-w-screen-2xl mx-auto">
+      {/* Practice Advice Section */}
+      <div className="text-center mb-12">
+        <h3 className="text-xl font-semibold text-blue-600">Featured Product</h3>
+        <h2 className="text-3xl font-bold text-gray-800 mt-4">Best Seller Porducts</h2>
+        <p className="text- text-gray-500 mt-4">
+          Problems solving and trying to resolve the conflict between</p>
       </div>
 
       {/* Card Grid Container */}
