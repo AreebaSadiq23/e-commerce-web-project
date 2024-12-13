@@ -1,5 +1,4 @@
 import HeroSection from "@/components/Hero";
-import EditorPickSection from "@/components/EditorPickSection";
 import CardSection from "@/components/cards";
 import BannerSection from "@/components/Banner";
 import CustomSection from "@/components/customer";
@@ -10,7 +9,6 @@ export default function Home() {
   return (
     <>
      <HeroSection />
-     <EditorPickSection />
      <CardSection />
      <BannerSection />
      <CustomSection />

@@ -5,7 +5,7 @@ import { FaUser, FaSearch, FaShoppingCart, FaHeart, FaChevronDown, FaBars, FaTim
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+ 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };

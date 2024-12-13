@@ -1,10 +1,8 @@
 import React from "react";
-import Image from "next/image"; 
+import Image from "next/image";
 import {
   ChevronDownIcon,
-  AdjustmentsHorizontalIcon,
   ChevronRightIcon,
-  Squares2X2Icon,
 } from "@heroicons/react/24/solid";
 
 const ShopPage = () => {
@@ -24,8 +22,7 @@ const ShopPage = () => {
       </div>
 
       {/* Product Grid Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 mt-10">
-        {/* Product Card */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
         {[
           "/Cloth/img casual.jpg",
           "/Cloth/img clo.jpeg",
@@ -34,22 +31,18 @@ const ShopPage = () => {
         ].map((src, index) => (
           <div
             key={index}
-            className="shop-item text-center border p-4 rounded-md shadow-md hover:shadow-lg transition-shadow duration-200 relative"
+            className="shop-item border p-4 rounded-md shadow-md hover:shadow-lg transition-shadow duration-200 relative"
           >
-            {/* Image */}
             <Image
               src={src}
               alt={`Cloth ${index + 1}`}
-              width={400}  
-              height={200} 
-              className="w-full h-48 object-cover rounded-md mb-4"
+              width={400}
+              height={200}
+              className="w-full h-48 object-cover rounded-md"
             />
-
-            {/* Product Information Over Image */}
-            <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white p-4">
-              <h3 className="text-lg font-medium">{`Cloth ${index + 1}`}</h3>
-              <p className="text-sm text-gray-300">{`$${20 + index * 5}.00`}</p>
-              <p className="text-sm text-gray-300">{`${5 + index * 3} Items`}</p>
+            <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white p-4 opacity-0 hover:opacity-100 transition-opacity duration-200">
+              <h3 className="text-lg font-medium">CLOTHS</h3>
+              <p className="text-sm text-gray-300">5 Items</p>
             </div>
           </div>
         ))}
@@ -57,40 +50,21 @@ const ShopPage = () => {
 
       {/* Showing Results & Filter Section */}
       <div className="flex justify-between items-center mb-6 mt-12">
-        <span>Showing 4 Results</span>
+        <span className="text-gray-400 font-bold">Showing 12 Results</span>
 
-        {/* Buttons Section */}
-        <div className="flex w-full justify-between items-center">
-          {/* Centered Views and Additional Icons */}
-          <div className="flex items-center space-x-4 mx-auto">
-            <button className="flex items-center space-x-1 bg-gray-200 p-2 rounded-md text-sm">
-              <span>Views</span>
-            </button>
-            {/* Grid Icon */}
-            <button className="bg-gray-200 p-2 rounded-md">
-              <Squares2X2Icon className="w-4 h-4" />
-            </button>
-            {/* Additional Icon */}
-            <button className="bg-gray-200 p-2 rounded-md">
-              <AdjustmentsHorizontalIcon className="w-4 h-4" />
-            </button>
-          </div>
-
-          {/* Right-Aligned Buttons */}
-          <div className="flex items-center space-x-4">
-            <button className="flex items-center space-x-1 bg-gray-200 p-2 rounded-md text-sm">
-              <span>Popularity</span>
-              <ChevronDownIcon className="w-4 h-4" />
-            </button>
-            <button className="flex items-center space-x-1 bg-blue-500 text-white p-2 rounded-md text-md">
-              <span>Filter</span>
-            </button>
-          </div>
+        <div className="flex items-center space-x-4">
+          <button className="flex items-center space-x-1 bg-gray-200 px-4 py-2 rounded-md text-sm">
+            <span>Popularity</span>
+            <ChevronDownIcon className="w-4 h-4" />
+          </button>
+          <button className="bg-blue-500 text-white px-4 py-2 rounded-md text-sm">
+            Filter
+          </button>
         </div>
       </div>
 
       {/* Brand Logos Section */}
-      <div className="flex flex-wrap justify-center gap-24 mt-20">
+      <div className="flex flex-wrap justify-center gap-20 mt-10">
         {[
           "/logo/1.png",
           "/logo/2.png",
@@ -103,10 +77,48 @@ const ShopPage = () => {
             key={index}
             src={src}
             alt={`Brand Logo ${index + 1}`}
-            width={96}  
-            height={48} 
-            className="w-24 h-auto"
+            width={96}
+            height={48}
+            className="w-20 h-auto"
           />
+        ))}
+      </div>
+
+      {/* Cards Section */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-12 px-4">
+        {Array.from({ length: 12 }).map((_, index) => (
+          <div
+            key={index}
+            className="flex justify-center transform transition-transform hover:scale-105"
+          >
+            <div className="w-[239px] h-auto bg-white p-[25px] pb-[35px] shadow-lg hover:shadow-2xl transition-shadow duration-300 rounded-md">
+              <Image
+                src={`/product/img${index + 7}.png`}
+                alt={`Card Image ${index + 1}`}
+                width={239}
+                height={188}
+                className="object-cover transition-transform duration-300 hover:scale-110 rounded-md"
+              />
+              <h3 className="text-xl font-semibold mt-4 text-center text-black">
+                Graphic Design
+              </h3>
+              <h4 className="text-gray-600 mt-2 text-center">
+                English Department
+              </h4>
+              {/* Prices */}
+              <div className="flex justify-center items-center mt-2 space-x-2">
+                <p className="text-gray-500">$99.99</p>
+                <p className="text-gray-400 line-through">$129.99</p>
+              </div>
+              {/* Circles */}
+              <div className="flex justify-center mt-4 space-x-2">
+                <div className="w-4 h-4 rounded-full bg-red-500"></div>
+                <div className="w-4 h-4 rounded-full bg-blue-500"></div>
+                <div className="w-4 h-4 rounded-full bg-yellow-500"></div>
+                <div className="w-4 h-4 rounded-full bg-green-500"></div>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </div>

@@ -16,7 +16,7 @@ const HeroSection = () => {
 
       <div className="container mx-auto relative z-10 flex flex-col lg:flex-row items-center justify-center lg:justify-between px-6">
         {/* Left Section: Text Content */}
-        <div className="text-center lg:text-left w-full lg:w-1/2 space-y-6">
+        <div className="text-center lg:text-left w-full lg:w-1/2 space-y-6 mt-12 lg:mt-0 lg:ml-8">
           <h5 className="text-white text-xl lg:text-2xl">SUMMER 2020</h5>
           <h1 className="text-4xl lg:text-6xl font-bold text-white mb-10">
             New Collection

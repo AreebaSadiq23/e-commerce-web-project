@@ -3,24 +3,24 @@ import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 py-12 px-4 max-w-screen-2xl mx-auto">
+    <footer className="bg-gray-300 py-12 px-4 max-w-screen-2xl mx-auto">
       {/* Footer Top with Logo and Social Icons */}
       <div className="max-w-screen-xl mx-auto flex flex-col sm:flex-row justify-between items-center mb-12">
-        {/* Brand Logo */}
+        {/* Logo */}
         <div className="text-3xl font-semibold mb-4 sm:mb-0">
-          <span className="text-black">Bandage</span>
+          <span className="text-zinc-950 font-bold font-2xl">Bandage</span>
         </div>
 
         {/* Social Media Icons */}
         <div className="flex space-x-4">
           <a href="https://facebook.com" className="text-blue-400">
-            <FaFacebookF size={24} />
+            <FaFacebookF size={28} />
           </a>
           <a href="https://twitter.com" className="text-blue-400">
-            <FaTwitter size={24} />
+            <FaTwitter size={28} />
           </a>
           <a href="https://instagram.com" className="text-blue-400">
-            <FaInstagram size={24} />
+            <FaInstagram size={28} />
           </a>
         </div>
       </div>
@@ -29,7 +29,7 @@ const Footer = () => {
       <div className="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
         {/* Company Info */}
         <div>
-          <h4 className="text-xl font-semibold mb-4">Company Info</h4>
+          <h4 className="text-xl font-bold mb-4">Company Info</h4>
           <ul className="space-y-2 text-sm">
             <li>About Us</li>
             <li>Careers</li>
@@ -40,7 +40,7 @@ const Footer = () => {
 
         {/* Legal */}
         <div>
-          <h4 className="text-xl font-semibold mb-4">Legal</h4>
+          <h4 className="text-xl font-bold mb-4">Legal</h4>
           <ul className="space-y-2 text-sm">
             <li>About Us</li>
             <li>Career</li>
@@ -51,7 +51,7 @@ const Footer = () => {
 
         {/* Features */}
         <div>
-          <h4 className="text-xl font-semibold mb-4">Features</h4>
+          <h4 className="text-xl font-bold mb-4">Features</h4>
           <ul className="space-y-2 text-sm">
             <li>Business and Marketing</li>
             <li>User Analytics</li>
@@ -62,7 +62,7 @@ const Footer = () => {
 
         {/* Resources */}
         <div>
-          <h4 className="text-xl font-semibold mb-4">Resources</h4>
+          <h4 className="text-xl font-bold mb-4">Resources</h4>
           <ul className="space-y-2 text-sm">
             <li>iOS and Android</li>
             <li>Watch a Demo</li>
@@ -72,27 +72,9 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Get in Touch (This section now placed side by side with Resources on larger screens) */}
-      <div className="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mt-12">
-        <div className="sm:col-span-2 lg:col-span-1">
-          <h4 className="text-xl font-semibold mb-4">Get in Touch</h4>
-          <div className="flex flex-col sm:flex-row items-center sm:items-start">
-            {/* Email Input */}
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="p-3 text-gray-800 rounded-md mb-4 sm:mb-0 sm:mr-4 w-full sm:w-auto"
-            />
-            {/* Subscribe Button */}
-            <button className="bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700">
-              Subscribe
-            </button>
-          </div>
-        </div>
-      </div>
-
+    
       {/* Footer Bottom Section */}
-      <div className="text-center text-sm text-gray-400 mt-12">
+      <div className="text-center text-md text-gray-600 mt-12">
         <p>Made with Love by Finished. All rights reserved.</p>
       </div>
     </footer>
