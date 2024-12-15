@@ -138,7 +138,7 @@ const PricingSection: React.FC = () => {
      {/* FAQ Section */}
 <div className="mt-28">
   <h3 className="text-center text-4xl font-bold text-black">Pricing FAQs</h3>
-  <p className="text-center text-gray-500 mt-4 text-xl">
+  <p className="text-center text-gray-500 mt-4 text-md">
     Problems trying to resolve the conflict between <br />
     the two major realms of Classical physics.
   </p>
