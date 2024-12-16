@@ -19,7 +19,7 @@ const CartPage = () => {
       image: "/Cloth/trendyoutfit.jpg",
     },
     {
-      id: 2,
+      id: 3,
       name: "Men",
       price: 99.49,
       quantity: 2,

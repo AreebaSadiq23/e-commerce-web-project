@@ -16,6 +16,7 @@ export default function Home() {
     { id: 3, name: 'Sunglasses', description: 'Stylish sunglasses for summer.', image: '/wishlist/2.jpg' },
   ];
 
+
   // Wishlist state
   const [wishlist, setWishlist] = useState<WishlistItem[]>(initialWishlist);
 
@@ -24,6 +25,7 @@ export default function Home() {
     setWishlist(wishlist.filter(item => item.id !== id));
   };
 
+  
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col items-center py-12">
       <div className="w-full max-w-5xl px-6">
