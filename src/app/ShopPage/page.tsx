@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link"; // Import Link for navigation
 import {
-  ChevronDownIcon,
   ChevronRightIcon,
 } from "@heroicons/react/24/solid";
 
@@ -10,10 +10,7 @@ const ShopPage = () => {
     <div className="container mx-auto my-12 px-4 max-w-screen-2xl">
       {/* Header Section */}
       <div className="flex justify-between items-center mb-6">
-        {/* Left Heading */}
         <h3 className="text-2xl font-semibold">Shop</h3>
-
-        {/* Breadcrumb */}
         <div className="breadcrumb flex items-center text-gray-500 space-x-2">
           <span>Home</span>
           <ChevronRightIcon className="w-4 h-4 text-gray-400" />
@@ -48,42 +45,6 @@ const ShopPage = () => {
         ))}
       </div>
 
-      {/* Showing Results & Filter Section */}
-      <div className="flex justify-between items-center mb-6 mt-12">
-        <span className="text-gray-400 font-bold">Showing 12 Results</span>
-
-        <div className="flex items-center space-x-4">
-          <button className="flex items-center space-x-1 bg-gray-200 px-4 py-2 rounded-md text-sm">
-            <span>Popularity</span>
-            <ChevronDownIcon className="w-4 h-4" />
-          </button>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-md text-sm">
-            Filter
-          </button>
-        </div>
-      </div>
-
-      {/* Brand Logos Section */}
-      <div className="flex flex-wrap justify-center gap-20 mt-10">
-        {[
-          "/logo/1.png",
-          "/logo/2.png",
-          "/logo/3.png",
-          "/logo/4.png",
-          "/logo/5.png",
-          "/logo/6.png",
-        ].map((src, index) => (
-          <Image
-            key={index}
-            src={src}
-            alt={`Brand Logo ${index + 1}`}
-            width={96}
-            height={48}
-            className="w-20 h-auto"
-          />
-        ))}
-      </div>
-
       {/* Cards Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-12 px-4">
         {Array.from({ length: 12 }).map((_, index) => (
@@ -105,12 +66,10 @@ const ShopPage = () => {
               <h4 className="text-gray-600 mt-2 text-center">
                 English Department
               </h4>
-              {/* Prices */}
               <div className="flex justify-center items-center mt-2 space-x-2">
                 <p className="text-gray-500">$99.99</p>
                 <p className="text-gray-400 line-through">$129.99</p>
               </div>
-              {/* Circles */}
               <div className="flex justify-center mt-4 space-x-2">
                 <div className="w-4 h-4 rounded-full bg-red-500"></div>
                 <div className="w-4 h-4 rounded-full bg-blue-500"></div>
@@ -120,6 +79,34 @@ const ShopPage = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Pagination Buttons */}
+      <div className="flex justify-center items-center mt-12">
+        {/* Previous Button */}
+        <Link href="/page2">
+          <button className="px-6 py-4 bg-white text-gray-700 border border-gray-400  text-sm">
+            Next
+          </button>
+        </Link>
+
+        {/* Page Buttons */}
+        <button className="px-4 py-4 bg-white text-gray-700 border border-gray-400  text-sm">
+          1
+        </button>
+        <button className="px-4 py-4 bg-blue-500 text-white border border-blue-400  text-sm">
+          2
+        </button>
+        <button className="px-4 py-4 bg-white text-gray-700 border border-gray-400 text-sm">
+          3
+        </button>
+
+        {/* Next Button */}
+        <Link href="/page2">
+          <button className="px-6 py-4 bg-white text-gray-700 border border-gray-400 text-sm">
+            Next
+          </button>
+        </Link>
       </div>
     </div>
   );
