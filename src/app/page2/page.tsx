@@ -7,9 +7,10 @@ import {
   EyeIcon,
   StarIcon,
 } from "@heroicons/react/24/solid";
+import Navbar from "../navbar";
 
 const ProductSection = () => {
-  const rating = 5;
+   const rating = 5;
 
   // State to manage current image index
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -32,6 +33,8 @@ const ProductSection = () => {
   };
 
   return (
+  <>
+  <Navbar/>
     <div className="container mx-auto my-12 px-4 max-w-screen-xl">
       <div className="flex items-center justify-between">
         {/* Left Image Section with Carousel */}
@@ -348,14 +351,8 @@ const ProductSection = () => {
           </div>
         </div>
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 text-center mt-20">
-            Big Companies Are Here
-          </h2>
-          <p className="text-gray-600 text-md text-center mt-4">
-            Problems trying to resolve the conflict between <br />
-            the two major realms of Classical physics: Newtonian mechanics.
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mt-10 items-center">
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mt-20 items-center">
             {[1, 2, 3, 4, 5, 6].map((logo, index) => (
               <Image
                 key={index}
@@ -370,6 +367,7 @@ const ProductSection = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

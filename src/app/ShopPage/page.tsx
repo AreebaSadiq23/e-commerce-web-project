@@ -1,12 +1,15 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link"; // Import Link for navigation
+import Link from "next/link";
 import {
   ChevronRightIcon,
 } from "@heroicons/react/24/solid";
+import Header from "@/components/Header";
 
 const ShopPage = () => {
   return (
+    <>
+    <Header/>
     <div className="container mx-auto my-12 px-4 max-w-screen-2xl">
       {/* Header Section */}
       <div className="flex justify-between items-center mb-6">
@@ -109,6 +112,7 @@ const ShopPage = () => {
         </Link>
       </div>
     </div>
+    </>
   );
 };
 
