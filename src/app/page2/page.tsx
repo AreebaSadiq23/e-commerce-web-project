@@ -204,6 +204,8 @@ const ProductSection = () => {
               <Image
                 src="/shoppage/img1.png"
                 alt="Product"
+                width={400} 
+                height={400} 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -223,6 +225,8 @@ const ProductSection = () => {
               <Image
                 src="/shoppage/img2.png"
                 alt="Product"
+                width={400} 
+                height={400} 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -240,8 +244,10 @@ const ProductSection = () => {
           <div className="bg-white shadow-md p-4 rounded-lg w-1/4">
             <div className="h-60 bg-gray-200 mb-4">
               <Image
-                src="shoppage/img3.png"
+                src="/shoppage/img3.png"
                 alt="Product"
+                width={400} 
+                height={400} 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -261,6 +267,8 @@ const ProductSection = () => {
               <Image
                 src="/shoppage/img4.png"
                 alt="Product"
+                width={400} 
+                height={400} 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -280,6 +288,8 @@ const ProductSection = () => {
               <Image
                 src="/shoppage/img5.png"
                 alt="Product"
+                width={400} 
+                height={400} 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -299,6 +309,8 @@ const ProductSection = () => {
               <Image
                 src="/shoppage/img6.png"
                 alt="Product"
+                width={400} 
+                height={400} 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -318,6 +330,8 @@ const ProductSection = () => {
               <Image
                 src="/shoppage/img1.png"
                 alt="Product"
+                width={400} 
+                height={400} 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -335,8 +349,10 @@ const ProductSection = () => {
           <div className="bg-white shadow-md p-4 rounded-lg w-1/4">
             <div className="h-48 bg-gray-200 mb-4">
               <Image
-                src="shoppage/img2.png"
+                src="/shoppage/img2.png"
                 alt="Product"
+                width={400} 
+                height={400} 
                 className="w-full h-full object-cover"
               />
             </div>
