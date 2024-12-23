@@ -35,7 +35,7 @@ const ProductSection = () => {
   return (
   <>
   <Navbar/>
-    <div className="container mx-auto my-12 px-4 max-w-screen-xl">
+    <div className="container mx-auto my-12 px-4 max-w-screen-xl ">
       <div className="flex flex-col md:flex-row items-center justify-between">
         {/* Left Image Section with Carousel */}
         <div className="w-full md:w-[506px] h-[450px] relative mb-6 md:mb-0">

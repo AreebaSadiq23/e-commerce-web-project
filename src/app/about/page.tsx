@@ -8,7 +8,7 @@ const AboutSection = () => {
     <>
     <Navbar/>
       {/* About Company Section */}
-      <div className="relative flex flex-wrap items-center justify-between ml-32">
+      <div className="relative flex flex-wrap items-center justify-between px-4 lg:px-32 py-10">
         <div className="w-full lg:w-1/2 space-y-6">
           <h4 className="text-sm text-black font-semibold">About Company</h4>
           <h2 className="text-3xl md:text-6xl font-bold text-gray-800 mt-10">
@@ -195,7 +195,7 @@ const AboutSection = () => {
 
         {/* Work With Us Section */}
         <div className="w-full bg-lightblue py-16 relative">
-          <div className="flex items-stretch">
+          <div className="flex flex-col lg:flex-row items-stretch">
             {/* Left Content with Blue Background */}
             <div className="w-full lg:w-1/2 bg-blue-600 p-16 flex flex-col justify-center space-y-6">
               <h2 className="text-xl md:text-md text-white">Work With Us</h2>

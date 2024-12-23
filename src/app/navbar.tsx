@@ -6,7 +6,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-lg">
+    <header className="bg-white shadow-lg max-w-screen-2xl mx-auto">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <div className="text-xl font-bold text-gray-800">Bandage</div>
@@ -38,7 +38,7 @@ const Navbar = () => {
           <Link href="/" className="text-gray-600 hover:text-gray-900">
             Home
           </Link>
-          <Link href="/page2" className="text-gray-600 hover:text-gray-900">
+          <Link href="/ShopPage" className="text-gray-600 hover:text-gray-900">
             Product
           </Link>
           <Link href="/pricing" className="text-gray-600 hover:text-gray-900">

@@ -225,7 +225,7 @@
           {/* Text layout with left and right sides */}
           <div className="flex justify-between mt-10">
             {/* Left side with 3 repetitions */}
-            <div className="w-1/2 text-left ml-20">
+            <div className="w-full sm:w-1/2 lg:w-1/2 text-left ml-20 mb-10 sm:mb-0">
               <h2 className="text-lg font-semibold mb-3 text-gray-800">
             <span className="text-blue-500 font-semibold text-3xl">&gt; </span>The quick fox jumps over the lazy dog.
               </h2>
@@ -255,7 +255,7 @@
             </div>
 
             {/* Right side with 3 repetitions */}
-            <div className="w-1/2 text-right mr-20">
+            <div className="w-full sm:w-1/2 lg:w-1/2 text-left ml-20 mb-10 sm:mb-0">
               <h2 className="text-lg font-semibold mb-3 text-gray-800">
               <span className="text-blue-500 font-semibold text-2xl">&gt; </span>The quick fox jumps over the lazy dog.
               </h2>
