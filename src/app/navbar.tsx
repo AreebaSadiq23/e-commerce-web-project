@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from "react";
+import Link from "next/link"; // Import Link component from next/link
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,26 +35,26 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex space-x-6">
-          <a href="/" className="text-gray-600 hover:text-gray-900">
+          <Link href="/" className="text-gray-600 hover:text-gray-900">
             Home
-          </a>
-          <a href="/ShopPage" className="text-gray-600 hover:text-gray-900">
+          </Link>
+          <Link href="/ShopPage" className="text-gray-600 hover:text-gray-900">
             Product
-          </a>
-          <a href="/pricing" className="text-gray-600 hover:text-gray-900">
+          </Link>
+          <Link href="/pricing" className="text-gray-600 hover:text-gray-900">
             Pricing
-          </a>
-          <a href="/contact" className="text-gray-600 hover:text-gray-900">
+          </Link>
+          <Link href="/contact" className="text-gray-600 hover:text-gray-900">
             Contact
-          </a>
+          </Link>
         </nav>
 
         {/* Right Section: Login and Button */}
         <div className="hidden lg:flex items-center space-x-4">
-          <a href="/login" className="text-blue-500 font-bold hover:text-gray-900">
+          <Link href="/login" className="text-blue-500 font-bold hover:text-gray-900">
             Login
-          </a>
-          <a
+          </Link>
+          <Link
             href="/team"
             className="bg-blue-500 text-white px-4 py-2 rounded-md flex items-center space-x-2 hover:bg-blue-600"
           >
@@ -72,38 +73,38 @@ const Navbar = () => {
                 d="M13 7l5 5m0 0l-5 5m5-5H6"
               />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="lg:hidden flex flex-col items-center space-y-4 py-4 bg-white shadow-md">
-          <a href="/" className="text-gray-600 hover:text-gray-900">
+          <Link href="/" className="text-gray-600 hover:text-gray-900">
             Home
-          </a>
-          <a href="/ShopPage" className="text-gray-600 hover:text-gray-900">
+          </Link>
+          <Link href="/ShopPage" className="text-gray-600 hover:text-gray-900">
             Product
-          </a>
-          <a href="/pricing" className="text-gray-600 hover:text-gray-900">
+          </Link>
+          <Link href="/pricing" className="text-gray-600 hover:text-gray-900">
             Pricing
-          </a>
-          <a href="/contact" className="text-gray-600 hover:text-gray-900">
+          </Link>
+          <Link href="/contact" className="text-gray-600 hover:text-gray-900">
             Contact
-          </a>
+          </Link>
           <div className="flex flex-col items-center w-full space-y-3 mt-4">
-            <a
+            <Link
               href="/login"
               className="text-blue-500 font-bold hover:text-gray-900 w-full text-center"
             >
               Login
-            </a>
-            <a
+            </Link>
+            <Link
               href="/team"
               className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 w-full text-center"
             >
               Become a Member
-            </a>
+            </Link>
           </div>
         </div>
       )}
