@@ -36,15 +36,15 @@ const ProductSection = () => {
   <>
   <Navbar/>
     <div className="container mx-auto my-12 px-4 max-w-screen-xl">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row items-center justify-between">
         {/* Left Image Section with Carousel */}
-        <div className="w-[506px] h-[450px] relative">
+        <div className="w-full md:w-[506px] h-[450px] relative mb-6 md:mb-0">
           <Image
             src={images[currentImageIndex]}
             alt="Phone"
             width={506}
             height={450}
-            className="ml-20"
+            className="ml-20 object-cover"
           />
           {/* Carousel Buttons */}
           <button
@@ -62,7 +62,7 @@ const ProductSection = () => {
         </div>
 
         {/* Right Text Section */}
-        <div className="w-1/2">
+        <div className="w-full md:w-1/2 px-6">
           <h2 className="text-3xl font-semibold mb-2">Phone Model</h2>
 
           {/* Stars Rating */}
@@ -125,9 +125,9 @@ const ProductSection = () => {
       </div>
 
       {/* New Section for Description, Additional Info, and Reviews */}
-      <div className="flex space-x-6 mt-12">
+      <div className="flex flex-col md:flex-row mt-12">
         {/* Left Image with Specific Size and Radius */}
-        <div className="overflow-hidden ml-20">
+        <div className="overflow-hidden md:ml-20 mb-6 md:mb-0">
           <Image
             src="/shop/3.png"
             alt="Image"
@@ -138,9 +138,9 @@ const ProductSection = () => {
         </div>
 
         {/* Right Content with Heading and Paragraphs */}
-        <div className="w-full flex">
+        <div className="w-full flex flex-col md:flex-row">
           {/* Left Section: Upper Paragraphs */}
-          <div className="w-1/2 pr-6">
+          <div className="w-full md:w-1/2 pr-6 ml-3">
             <h2 className="text-2xl font-bold mb-4">
               The quick fox jumps over
             </h2>
@@ -168,7 +168,7 @@ const ProductSection = () => {
           </div>
 
           {/* Right Side Section */}
-          <div className="w-1/2 pl-6 mt-2 space-y-4">
+          <div className="w-full md:w-1/2 pl-6 mt-2 space-y-4">
             <h3 className="text-2xl font-bold">The quick fox jumps over</h3>
             <p className="text-gray-700">
               &gt; the quick fox jumps over the lazy dog
@@ -199,7 +199,7 @@ const ProductSection = () => {
         {/* Cards Container */}
         <div className="flex flex-wrap justify-between">
           {/* Card 1 */}
-          <div className="bg-white shadow-md p-4 rounded-lg w-1/4 h-full">
+          <div className="bg-white shadow-md p-4 rounded-lg w-full md:w-1/4 h-full mb-6">
             <div className="h-60 bg-gray-200  mb-4">
               <Image
                 src="/shoppage/img1.png"
@@ -220,7 +220,7 @@ const ProductSection = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="bg-white shadow-md p-4 rounded-lg w-1/4">
+          <div className="bg-white shadow-md p-4 rounded-lg w-full md:w-1/4 h-full mb-6">
             <div className="h-60 bg-gray-200 mb-4">
               <Image
                 src="/shoppage/img2.png"
@@ -241,7 +241,7 @@ const ProductSection = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="bg-white shadow-md p-4 rounded-lg w-1/4">
+          <div className="bg-white shadow-md p-4 rounded-lg w-full md:w-1/4 h-full mb-6">
             <div className="h-60 bg-gray-200 mb-4">
               <Image
                 src="/shoppage/img3.png"
@@ -262,7 +262,7 @@ const ProductSection = () => {
           </div>
 
           {/* Card 4 */}
-          <div className="bg-white shadow-md p-4 rounded-lg w-1/4">
+          <div className="bg-white shadow-md p-4 rounded-lg w-full md:w-1/4 h-full mb-6">
             <div className="h-60 bg-gray-200 mb-4">
               <Image
                 src="/shoppage/img4.png"
@@ -283,7 +283,7 @@ const ProductSection = () => {
           </div>
 
           {/* Card 5 */}
-          <div className="bg-white shadow-md p-4 rounded-lg w-1/4">
+          <div className="bg-white shadow-md p-4 rounded-lg w-full md:w-1/4 h-full mb-6">
             <div className="h-48 bg-gray-200 mb-4">
               <Image
                 src="/shoppage/img5.png"
@@ -304,7 +304,7 @@ const ProductSection = () => {
           </div>
 
           {/* Card 6 */}
-          <div className="bg-white shadow-md p-4 rounded-lg w-1/4">
+          <div className="bg-white shadow-md p-4 rounded-lg w-full md:w-1/4 h-full mb-6">
             <div className="h-48 bg-gray-200 mb-4">
               <Image
                 src="/shoppage/img6.png"
@@ -325,7 +325,7 @@ const ProductSection = () => {
           </div>
 
           {/* Card 7 */}
-          <div className="bg-white shadow-md p-4 rounded-lg w-1/4">
+          <div className="bg-white shadow-md p-4 rounded-lg w-full md:w-1/4 h-full mb-6">
             <div className="h-48 bg-gray-200 mb-4">
               <Image
                 src="/shoppage/img1.png"
@@ -346,7 +346,7 @@ const ProductSection = () => {
           </div>
 
           {/* Card 8 */}
-          <div className="bg-white shadow-md p-4 rounded-lg w-1/4">
+          <div className="bg-white shadow-md p-4 rounded-lg w-full md:w-1/4 h-full mb-6">
             <div className="h-48 bg-gray-200 mb-4">
               <Image
                 src="/shoppage/img2.png"

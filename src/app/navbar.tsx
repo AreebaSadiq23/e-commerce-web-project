@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from "react";
-import Link from "next/link"; // Import Link component from next/link
+import Link from "next/link"; 
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
