@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import {
   FaTwitter,
   FaFacebookF,
@@ -29,7 +30,7 @@ const ContactSection: React.FC = () => {
               things on a small scale.
             </p>
             <div className="mb-4">
-              <p className="text-gray-700"> Phone: +451 215 215</p>
+              <p className="text-gray-700">Phone: +451 215 215</p>
               <p className="text-gray-700">Fax: +451 215 215</p>
             </div>
 
@@ -52,9 +53,11 @@ const ContactSection: React.FC = () => {
 
           {/* Right Side Image */}
           <div className="relative">
-            <img
+            <Image
               src="/hero/img8.png"
               alt="Contact"
+              width={500}
+              height={500}
               className="w-full h-full object-cover rounded-lg"
             />
           </div>
@@ -117,10 +120,10 @@ const ContactSection: React.FC = () => {
         {/* Final Call-to-Action */}
         <div className="text-center my-16 mt-7">
           <h2 className="text-xl font-semibold text-gray-900 mb-4">
-            We can't wait to meet you
+            We can&apos;t wait to meet you
           </h2>
           <h3 className="text-6xl font-bold text-gray-900 mb-4">
-            Let's Talk
+            Let&apos;s Talk
           </h3>
           <button className="px-11 py-3 text-lg bg-blue-500 text-white hover:bg-blue-700 mt-5">
             Try It Free Now
