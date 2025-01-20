@@ -1,11 +1,11 @@
 import { createClient } from '@sanity/client';
 
 const client = createClient({
-  projectId: 'a97xfb4w',
+  projectId: '4qicm0s5',
   dataset: 'production',
   useCdn: true,
   apiVersion: '2025-01-13',
-  token: 'skRFVADKaDKighn6RpbxhowdbuMrKNNFTWemRsaBgHl1CXIAa0viB5XdmDRp7QMUu38I30jnyqvbgcOQrIwAwMXY1CjzOuQligqwa8AeloSgAVCiHAMOgwhYtY1NJdOkPlKHbEeFBiOC1O2CE6Doxi9b8AUHbzFJTPIG1dENFBTa1MuHwAlb',
+  token: 'skxTitfkWhoKGCgaTTrH7wIBdKazM8dyMyrs61y2t2pe0uD23ixYkyn3jOq9ZKjgLtVd4e3oOZlfX6yYJnA9KCdphQQmdJKjBLzwwDIgVUB0ysUvve0LyAmzMojR08ljCWeL16hhscYPwfchPBxBfXWI2qN8N6CwmrbhmXdB8UvbQuRkfEqd',
 });
 
 async function uploadImageToSanity(imageUrl) {
@@ -48,7 +48,7 @@ async function uploadProduct(product) {
           },
         },
         tags: product.tags,
-        dicountPercentage: product.dicountPercentage, // Typo in field name: dicountPercentage -> discountPercentage
+        dicountPercentage: product.dicountPercentage, 
         description: product.description,
         isNew: product.isNew,
       };
