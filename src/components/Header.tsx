@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { FaUser, FaSearch, FaShoppingCart, FaHeart, FaChevronDown, FaBars, FaTimes } from "react-icons/fa";
-import { useShoppingCart } from 'use-shopping-cart'
 
 
 
@@ -12,7 +11,6 @@ const Header = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-  const { cartCount } = useShoppingCart()
   return (
     <header className="bg-gray-100 shadow-md max-w-screen-2xl mx-auto">
       <div className="flex justify-between items-center py-4 px-6">
@@ -58,7 +56,6 @@ const Header = () => {
           <div className="relative">
             <Link href="/cart" className="text-blue-500">
               <FaShoppingCart />
-              Cart ({cartCount})
             </Link>
             <span className="absolute -top-2 -right-2 text-xs px-1 text-blue-500">1</span>
           </div>
