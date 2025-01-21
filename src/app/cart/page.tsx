@@ -31,7 +31,9 @@ export default function Cart() {
                 <Image src={item.image || "/placeholder.svg"} alt={item.name} width={80} height={80} className="mr-4 ml-10" />
                 <div>
                   <h2 className="text-lg font-semibold">{item.name}</h2>
-                  <p className="text-gray-600">${item.price.toFixed(2)}</p>
+                    <p className="text-md text-gray-600 mt-4">{item.description}</p>
+                    <p className="text-gray-600">${item.price.toFixed(2)}</p>
+                    <p className="text-gray-400 line-through">$129.99</p>
                 </div>
               </div>
               <div className="flex items-center mr-10">

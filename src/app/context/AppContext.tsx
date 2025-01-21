@@ -6,8 +6,13 @@ import { createContext, useContext, useState, useEffect } from "react"
 interface Product {
   id: number
   name: string
+  title:string
   price: number
+  oldprice?:number
   image: string
+  description: string;
+
+
 }
 
 interface CartItem extends Product {
@@ -35,9 +40,29 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [wishlist, setWishlist] = useState<Product[]>([])
 
   useEffect(() => {
-    // TODO: Check user authentication status
-    // TODO: Load cart and wishlist data from local storage or API
+    // Load cart data from localStorage on initial render
+    const savedCart = localStorage.getItem("cart")
+    if (savedCart) {
+      setCart(JSON.parse(savedCart))
+    }
+
+    // Load wishlist data from localStorage on initial render
+    const savedWishlist = localStorage.getItem("wishlist")
+    if (savedWishlist) {
+      setWishlist(JSON.parse(savedWishlist))
+    }
+
   }, [])
+
+  useEffect(() => {
+    // Save cart data to localStorage whenever it changes
+    localStorage.setItem("cart", JSON.stringify(cart))
+  }, [cart])
+
+  useEffect(() => {
+    // Save wishlist data to localStorage whenever it changes
+    localStorage.setItem("wishlist", JSON.stringify(wishlist))
+  }, [wishlist])
 
   const addToCart = (product: Product) => {
     setCart((prevCart) => {
