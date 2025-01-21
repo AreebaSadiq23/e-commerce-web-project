@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Heart, ShoppingCart } from "lucide-react";
-import { useAppContext } from "../context/AppContext";
+import { useAppContext } from "../app/context/AppContext";
 
 interface Product {
   id: number;

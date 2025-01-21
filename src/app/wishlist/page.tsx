@@ -1,7 +1,7 @@
 "use client"
 
 import { useAppContext } from "../context/AppContext"
-import ProductCard from "../ProductCard/page"
+import ProductCard from "@/components/productcard"
 import Header from "@/components/Header"
 
 
