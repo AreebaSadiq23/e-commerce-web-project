@@ -21,6 +21,7 @@ interface AppContextType {
   addToCart: (product: Product) => void
   removeFromCart: (productId: number) => void
   updateCartItemQuantity: (productId: number, quantity: number) => void
+  clearCart: () => void
   wishlist: Product[]
   addToWishlist: (product: Product) => void
   removeFromWishlist: (productId: number) => void
@@ -58,6 +59,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     )
   }
 
+  const clearCart = () => {
+    setCart([])
+  }
+
   const addToWishlist = (product: Product) => {
     setWishlist((prevWishlist) => {
       if (!prevWishlist.some((item) => item.id === product.id)) {
@@ -80,6 +85,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         addToCart,
         removeFromCart,
         updateCartItemQuantity,
+        clearCart,
         wishlist,
         addToWishlist,
         removeFromWishlist,
