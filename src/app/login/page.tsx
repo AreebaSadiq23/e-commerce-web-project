@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Header from "@/components/Header"
 
 export default function Login() {
   const [email, setEmail] = useState("")
@@ -13,6 +14,8 @@ export default function Login() {
   }
 
   return (
+    <>
+    <Header/>
     <div className="max-w-md mx-auto">
       <h1 className="text-3xl font-bold mb-8 mt-10 text-center text-gray-800 ">Login</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -53,6 +56,7 @@ export default function Login() {
         </Link>
       </p>
     </div>
+    </>
   )
 }
 
