@@ -6,7 +6,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-lg max-w-screen-2xl mx-auto">
+    <header className="bg-gray-100 shadow-lg max-w-screen-2xl mx-auto">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <div className="text-xl font-bold text-gray-800">Bandage</div>
