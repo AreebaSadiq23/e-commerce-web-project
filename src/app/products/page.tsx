@@ -56,8 +56,8 @@ const ProductCards: React.FC = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-center text-slate-800 mt-4 mb-4">
-        Products from API's Data
+      <h2 className="text-center text-slate-800 mt-4 mb-4 font-bold text-lg">
+        Products from API&apos;s Data
       </h2>
       {loading ? (
         <p className="text-center text-slate-600">Loading Products...</p>
