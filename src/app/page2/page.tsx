@@ -12,13 +12,10 @@ import Navbar from "../navbar";
 const ProductSection = () => {
    const rating = 5;
 
-  // State to manage current image index
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // List of images for the carousel
   const images = ["/shop/1.jpg", "/shop/2.jpg"];
 
-  // Function to handle previous image
   const handlePrev = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1

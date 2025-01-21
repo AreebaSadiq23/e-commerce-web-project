@@ -22,7 +22,6 @@ interface Product {
 
 const ProductCards: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [cart, setCart] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
 
   const fetchProducts = async () => {
@@ -47,21 +46,8 @@ const ProductCards: React.FC = () => {
     }
   };
 
-  const addToCart = (product: Product) => {
-    if (cart.some((item) => item._id === product._id)) {
-      alert(`${product.title} is already in your cart.`);
-      return;
-    }
-    setCart((prevCart) => [...prevCart, product]);
-    alert(`${product.title} has been added to your cart`);
-  };
-
   const truncateDescription = (description: string) => {
     return description.length > 100 ? description.substring(0, 100) + "..." : description;
-  };
-
-  const isProductInCart = (productId: string) => {
-    return cart.some((item) => item._id === productId);
   };
 
   useEffect(() => {
@@ -116,60 +102,11 @@ const ProductCards: React.FC = () => {
                     </span>
                   ))}
                 </div>
-                <button
-                  className={`mt-4 w-full ${
-                    isProductInCart(product._id)
-                      ? "bg-gray-400 cursor-not-allowed"
-                      : "bg-blue-600 hover:bg-blue-800"
-                  } text-white py-2 rounded-md`}
-                  onClick={() => addToCart(product)}
-                  disabled={isProductInCart(product._id)}
-                >
-                  {isProductInCart(product._id) ? "Already in Cart" : "Add to Cart"}
-                </button>
               </div>
             </div>
           ))}
         </div>
       )}
-      <div className="mt-8 bg-slate-50 p-6 rounded-md shadow-md">
-        <h2 className="text-lg font-black text-red-900">Cart Summary</h2>
-        {cart.length > 0 ? (
-          <>
-            <ul className="space-y-4">
-              {cart.map((item, index) => (
-                <li
-                  key={index}
-                  className="flex justify-between items-center bg-white shadow-sm p-4 rounded-md"
-                >
-                  <div>
-                    <p className="font-medium text-slate-950">{item.title}</p>
-                    <p className="text-sm text-blue-800">
-                      ${item.price.toFixed(2)}
-                    </p>
-                  </div>
-                  <Image
-                    src={item.imageUrl}
-                    alt={item.title}
-                    width={50}
-                    height={50}
-                    className="rounded-md"
-                  />
-                </li>
-              ))}
-            </ul>
-            <div className="mt-4 text-slate-900">
-              <p>Total Items: {cart.length}</p>
-              <p>
-                Total Price: $
-                {cart.reduce((total, item) => total + item.price, 0).toFixed(2)}
-              </p>
-            </div>
-          </>
-        ) : (
-          <p className="text-black text-center">Your cart is empty</p>
-        )}
-      </div>
     </div>
   );
 };
