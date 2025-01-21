@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { useAppContext } from "../context/AppContext"
+import Header from "@/components/Header"
 
 export default function Checkout() {
   const router = useRouter()
@@ -26,7 +27,6 @@ export default function Checkout() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: Implement actual checkout process (e.g., payment gateway integration)
     console.log("Order placed:", { ...formData, cart })
     alert("Order placed successfully!")
     router.push("/")
@@ -35,8 +35,10 @@ export default function Checkout() {
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
   return (
+    <>
+    <Header/>
     <div className="max-w-2xl mx-auto">
-      <h1 className="text-3xl font-bold mb-8">Checkout</h1>
+      <h1 className="text-3xl font-bold mb-8 mt-10 text-center">Checkout Here!</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="name" className="block mb-1">
@@ -123,7 +125,7 @@ export default function Checkout() {
           />
         </div>
         <div className="mt-8">
-          <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
+          <h2 className="text-xl font-semibold mb-4 mt-10">Order Summary</h2>
           {cart.map((item) => (
             <div key={item.id} className="flex justify-between mb-2">
               <span>
@@ -139,11 +141,14 @@ export default function Checkout() {
             </div>
           </div>
         </div>
-        <button type="submit" className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600">
+        <div className="pb-10">
+        <button type="submit" className="w-80 bg-green-500 text-white py-2 rounded hover:bg-green-600 mb-10">
           Place Order
         </button>
+        </div>
       </form>
     </div>
+    </>
   )
 }
 
