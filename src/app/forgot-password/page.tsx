@@ -31,7 +31,7 @@ export default function ForgotPassword() {
       } else {
         setMessage("Failed to send password reset email. Please try again.")
       }
-    } catch (err) {
+    } catch {
       setMessage("An error occurred. Please try again.")
     } finally {
       setIsLoading(false)
@@ -59,7 +59,7 @@ export default function ForgotPassword() {
       } else {
         setMessage("Password reset failed. Please try again.")
       }
-    } catch (err) {
+    } catch {
       setMessage("An error occurred. Please try again.")
     } finally {
       setIsLoading(false)
@@ -201,4 +201,3 @@ export default function ForgotPassword() {
     </div>
   )
 }
-

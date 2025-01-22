@@ -1,41 +1,41 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import { useAppContext } from "../context/AppContext"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useAppContext } from "../context/AppContext";
 
 export default function ResetPassword() {
-  const [password, setPassword] = useState("")
-  const [confirmPassword, setConfirmPassword] = useState("")
-  const [error, setError] = useState("")
-  const [message, setMessage] = useState("")
-  const { resetPassword } = useAppContext()
-  const router = useRouter()
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+  const { resetPassword } = useAppContext();
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setError("")
-    setMessage("")
+    e.preventDefault();
+    setError("");
+    setMessage("");
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match")
-      return
+      setError("Passwords do not match");
+      return;
     }
 
     try {
       // In a real application, you would get the token from the URL query parameters
-      const token = "dummy-token"
-      const success = await resetPassword(token, password)
+      const token = "dummy-token";
+      const success = await resetPassword(token, password);
       if (success) {
-        setMessage("Password reset successfully. Redirecting to login...")
-        setTimeout(() => router.push("/login"), 3000)
+        setMessage("Password reset successfully. Redirecting to login...");
+        setTimeout(() => router.push("/login"), 3000);
       } else {
-        setError("Password reset failed. Please try again.")
+        setError("Password reset failed. Please try again.");
       }
-    } catch (err) {
-      setError("An error occurred. Please try again.")
+    } catch (_) { // Unused error variable replaced with an underscore
+      setError("An error occurred. Please try again.");
     }
-  }
+  };
 
   return (
     <div className="max-w-md mx-auto mt-8 px-4">
@@ -74,6 +74,5 @@ export default function ResetPassword() {
         </button>
       </form>
     </div>
-  )
+  );
 }
-

@@ -31,7 +31,7 @@ export default function Register() {
       } else {
         setError("Registration failed. Please try again.");
       }
-    } catch (err) {
+    } catch (_) { // Unused error variable replaced with underscore
       setError("An error occurred. Please try again.");
     }
   };

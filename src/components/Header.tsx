@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { FaUser, FaShoppingCart, FaChevronDown, FaBars, FaTimes } from 'react-icons/fa';
+import { FaUser, FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
 import { Heart, LogOut } from 'lucide-react'; 
 import { useAppContext } from '../app/context/AppContext'; 
 
@@ -75,13 +75,13 @@ const Header = () => {
             </Link>
           )}
           <div className="relative">
-            <Link href="/cart" className="text-blue-500 flex items-center">
+            <Link href="/cart" className="text-gray-500 flex items-center">
               <FaShoppingCart className="mr-1" />
               {cartCount}
             </Link>
           </div>
           <div className="relative">
-            <Link href="/wishlist" className="text-blue-500 flex items-center">
+            <Link href="/wishlist" className="text-red-500 flex items-center">
               <Heart className="mr-1" />
             </Link>
           </div>
@@ -118,7 +118,7 @@ const Header = () => {
               {isLoggedIn ? (
                 <div>
                   <span className="text-gray-700">Welcome, {user?.name}!</span>
-                  <button onClick={logout} className="text-gray-700 hover:text-blue-500 ml-4">
+                  <button onClick={logout} className="text-gray-700 hover:text-gray-500 ml-4">
                     Logout
                   </button>
                 </div>
@@ -129,13 +129,13 @@ const Header = () => {
               )}
             </li>
             <li>
-              <Link href="/cart" className="text-blue-500 flex items-center">
+              <Link href="/cart" className="text-gray-500 flex items-center">
                 <FaShoppingCart className="mr-1" />
                 {cartCount > 0 && <span className="text-xs bg-red-500 text-white rounded-full px-2 ml-1">{cartCount}</span>}
               </Link>
             </li>
             <li>
-              <Link href="/wishlist" className="text-blue-500 flex items-center">
+              <Link href="/wishlist" className="text-red-500 flex items-center">
                 <Heart className="mr-1" />
               </Link>
             </li>
