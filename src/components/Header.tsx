@@ -1,11 +1,13 @@
 'use client';
-import React, { useState } from "react";
-import Link from "next/link";
-import { FaUser, FaShoppingCart, FaHeart, FaChevronDown, FaBars, FaTimes } from "react-icons/fa";
-import { useAppContext } from "../app/context/AppContext";
+
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { FaUser, FaShoppingCart, FaChevronDown, FaBars, FaTimes } from 'react-icons/fa';
+import { Heart, LogOut } from 'lucide-react'; 
+import { useAppContext } from '../app/context/AppContext'; 
 
 const Header = () => {
-  const { isLoggedIn, cart } = useAppContext();
+  const { isLoggedIn, cart, user, logout } = useAppContext();
 
   // Calculate the total items in the cart
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
@@ -38,13 +40,10 @@ const Header = () => {
                 Home
               </Link>
             </li>
-            <li className="relative group">
-              <span className="flex items-center text-gray-700 hover:text-blue-500 cursor-pointer">
-                <Link href="/ShopPage" className="text-gray-700 hover:text-blue-500">
-                  Shop
-                </Link>
-                <FaChevronDown className="ml-1" />
-              </span>
+            <li>
+              <Link href="/ShopPage" className="text-gray-700 hover:text-blue-500">
+                Shop
+              </Link>
             </li>
             <li>
               <Link href="/about" className="text-gray-700 hover:text-blue-500">
@@ -62,10 +61,17 @@ const Header = () => {
         {/* Desktop Icons */}
         <div className="hidden lg:flex items-center space-x-4">
           {isLoggedIn ? (
-            <div className="text-gray-700">Welcome, User!</div>
+            <div className="flex items-center space-x-2">
+              <span className="text-gray-600">Welcome, {user?.name}</span>
+              <button onClick={logout} className="text-gray-600 hover:text-gray-800">
+                <LogOut className="inline-block mr-1" size={20} />
+                Logout
+              </button>
+            </div>
           ) : (
-            <Link href="/login" className="flex items-center text-blue-500">
-              <FaUser className="mr-2" /> Login/Register
+            <Link href="/login" className="text-gray-600 hover:text-gray-800">
+              <FaUser className="inline-block mr-1" size={20} />
+              Login
             </Link>
           )}
           <div className="relative">
@@ -76,7 +82,7 @@ const Header = () => {
           </div>
           <div className="relative">
             <Link href="/wishlist" className="text-blue-500 flex items-center">
-              <FaHeart className="mr-1" />
+              <Heart className="mr-1" />
             </Link>
           </div>
         </div>
@@ -108,9 +114,14 @@ const Header = () => {
               </Link>
             </li>
             {/* Mobile Icons */}
-            <li className="flex space-x-4">
+            <li>
               {isLoggedIn ? (
-                <span className="text-gray-700">Welcome, User!</span>
+                <div>
+                  <span className="text-gray-700">Welcome, {user?.name}!</span>
+                  <button onClick={logout} className="text-gray-700 hover:text-blue-500 ml-4">
+                    Logout
+                  </button>
+                </div>
               ) : (
                 <Link href="/login" className="flex items-center text-blue-500">
                   <FaUser className="mr-2" /> Login/Register
@@ -118,19 +129,15 @@ const Header = () => {
               )}
             </li>
             <li>
-              <div className="relative">
-                <Link href="/cart" className="text-blue-500 flex items-center">
-                  <FaShoppingCart className="mr-1" />
-                  {cartCount}
-                </Link>
-              </div>
+              <Link href="/cart" className="text-blue-500 flex items-center">
+                <FaShoppingCart className="mr-1" />
+                {cartCount > 0 && <span className="text-xs bg-red-500 text-white rounded-full px-2 ml-1">{cartCount}</span>}
+              </Link>
             </li>
             <li>
-              <div className="relative">
-                <Link href="/wishlist" className="text-blue-500 flex items-center">
-                  <FaHeart className="mr-1" />
-                </Link>
-              </div>
+              <Link href="/wishlist" className="text-blue-500 flex items-center">
+                <Heart className="mr-1" />
+              </Link>
             </li>
           </ul>
         </nav>

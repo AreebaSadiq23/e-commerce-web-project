@@ -2,17 +2,19 @@
 
 import type React from "react"
 import { createContext, useContext, useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
+
+interface User {
+  id: number
+  name: string
+  email: string
+}
 
 interface Product {
   id: number
   name: string
-  title:string
   price: number
-  oldprice?:number
   image: string
-  description: string;
-
-
 }
 
 interface CartItem extends Product {
@@ -20,8 +22,13 @@ interface CartItem extends Product {
 }
 
 interface AppContextType {
+  user: User | null
   isLoggedIn: boolean
-  setIsLoggedIn: (value: boolean) => void
+  login: (email: string, password: string) => Promise<boolean>
+  register: (name: string, email: string, password: string) => Promise<boolean>
+  logout: () => Promise<void>
+  forgotPassword: (email: string) => Promise<boolean>
+  resetPassword: (token: string, newPassword: string) => Promise<boolean>
   cart: CartItem[]
   addToCart: (product: Product) => void
   removeFromCart: (productId: number) => void
@@ -35,34 +42,98 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined)
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [user, setUser] = useState<User | null>(null)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [cart, setCart] = useState<CartItem[]>([])
   const [wishlist, setWishlist] = useState<Product[]>([])
+  const router = useRouter()
 
   useEffect(() => {
-    // Load cart data from localStorage on initial render
+    const savedUser = localStorage.getItem("user")
+    if (savedUser) {
+      setUser(JSON.parse(savedUser))
+      setIsLoggedIn(true)
+    }
+
     const savedCart = localStorage.getItem("cart")
     if (savedCart) {
       setCart(JSON.parse(savedCart))
     }
 
-    // Load wishlist data from localStorage on initial render
     const savedWishlist = localStorage.getItem("wishlist")
     if (savedWishlist) {
       setWishlist(JSON.parse(savedWishlist))
     }
-
   }, [])
 
   useEffect(() => {
-    // Save cart data to localStorage whenever it changes
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user))
+    } else {
+      localStorage.removeItem("user")
+    }
+  }, [user])
+
+  useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart))
   }, [cart])
 
   useEffect(() => {
-    // Save wishlist data to localStorage whenever it changes
     localStorage.setItem("wishlist", JSON.stringify(wishlist))
   }, [wishlist])
+
+  const login = async (email: string, password: string): Promise<boolean> => {
+    // Simulating API call
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+
+    if (email === "user@example.com" && password === "password") {
+      const user: User = { id: 1, name: "John Doe", email: email }
+      setUser(user)
+      setIsLoggedIn(true)
+      return true
+    }
+    return false
+  }
+
+  const register = async (name: string, email: string, password: string): Promise<boolean> => {
+    // Simulating API call
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+
+    const user: User = { id: Date.now(), name, email }
+    setUser(user)
+    setIsLoggedIn(true)
+    return true
+  }
+
+  const logout = async (): Promise<void> => {
+    // Simulating API call
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+
+    setUser(null)
+    setIsLoggedIn(false)
+    setCart([])
+    setWishlist([])
+    localStorage.removeItem("user")
+    localStorage.removeItem("cart")
+    localStorage.removeItem("wishlist")
+    router.push("/login")
+  }
+
+  const forgotPassword = async (email: string): Promise<boolean> => {
+    // Simulating API call
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+
+    console.log(`Password reset requested for ${email}`)
+    return true
+  }
+
+  const resetPassword = async (token: string, newPassword: string): Promise<boolean> => {
+    // Simulating API call
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+
+    console.log(`Password reset with token ${token}`)
+    return true
+  }
 
   const addToCart = (product: Product) => {
     setCart((prevCart) => {
@@ -104,8 +175,13 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   return (
     <AppContext.Provider
       value={{
+        user,
         isLoggedIn,
-        setIsLoggedIn,
+        login,
+        register,
+        logout,
+        forgotPassword,
+        resetPassword,
         cart,
         addToCart,
         removeFromCart,

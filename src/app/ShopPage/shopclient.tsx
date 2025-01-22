@@ -63,14 +63,30 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <div className="w-4 h-4 rounded-full bg-green-500"></div>
         </div>
         <div className="flex justify-between mt-4">
-          <button onClick={handleAddToCart}>
-            <ShoppingCart className="inline-block mr-1" size={16} />
+          {/* Add to Cart Button */}
+          <button
+            onClick={handleAddToCart}
+            className="relative group"
+          >
+            <ShoppingCart className="inline-block mr-1" size={20} />
+            <span className="absolute left-1/2 bottom-full transform -translate-x-1/2 mb-2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+              Add to Cart
+            </span>
           </button>
+
+          {/* Wishlist Button */}
           <button
             onClick={handleToggleWishlist}
-            className={`p-2 rounded ${isWishlisted ? "text-red-500" : "text-gray-500"}`}
+            className={`relative group p-2 rounded ${isWishlisted ? "text-red-500" : "text-gray-500"}`}
           >
-            <Heart className="inline-block" size={20} fill={isWishlisted ? "currentColor" : "none"} />
+            <Heart
+              className="inline-block"
+              size={20}
+              fill={isWishlisted ? "currentColor" : "none"}
+            />
+            <span className="absolute left-1/2 bottom-full transform -translate-x-1/2 mb-2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+              {isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"}
+            </span>
           </button>
         </div>
       </div>
@@ -170,7 +186,7 @@ const ShopPageClient = () => {
         {/* Pagination Buttons */}
         <div className="flex justify-center items-center mt-12">
           {/* Previous Button */}
-          <Link href="/shop?page=1" className="px-6 py-4 bg-white text-gray-700 border border-gray-400 text-sm">
+          <Link href="/" className="px-6 py-4 bg-white text-gray-700 border border-gray-400 text-sm">
             Previous
           </Link>
 
