@@ -5,30 +5,15 @@ import { Trash2 } from "lucide-react";
 import { useAppContext } from "../context/AppContext";
 import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
-import { useState } from "react";
 
 export default function Cart() {
   const router = useRouter();
   const { cart, removeFromCart, updateCartItemQuantity } = useAppContext();
-  
-  // New state for handling password change (just an example)
-  const [password, setPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   const handleCheckout = () => {
     router.push("/checkout");
-  };
-
-  // Example function to handle password change
-  const handlePasswordChange = () => {
-    if (password && newPassword) {
-      // Implement your password change logic here
-      console.log("Password changed");
-    } else {
-      console.log("Please provide both passwords");
-    }
   };
 
   return (
@@ -90,31 +75,6 @@ export default function Cart() {
                   Proceed to Checkout
                 </button>
               </div>
-            </div>
-
-            {/* Password change example */}
-            <div className="mt-8">
-              <h2 className="text-xl font-semibold mb-4">Change Password</h2>
-              <input
-                type="password"
-                placeholder="Current Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full p-2 mb-4 border border-gray-300 rounded"
-              />
-              <input
-                type="password"
-                placeholder="New Password"
-                value={newPassword}
-                onChange={(e) => setNewPassword(e.target.value)}
-                className="w-full p-2 mb-4 border border-gray-300 rounded"
-              />
-              <button
-                onClick={handlePasswordChange}
-                className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
-              >
-                Update Password
-              </button>
             </div>
           </div>
         )}
