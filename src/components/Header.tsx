@@ -88,7 +88,7 @@ const Header = () => {
             </Link>
           )}
           <div className="relative">
-            <Link href="/cart" className="text-gray-500 flex items-center">
+            <Link href="/cart" className="text-gray-500 flex items-center text-xl">
               <FaShoppingCart className="mr-1" />
               {cartCount}
             </Link>
