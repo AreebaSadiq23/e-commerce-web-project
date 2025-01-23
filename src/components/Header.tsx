@@ -142,7 +142,7 @@ const Header = () => {
             <li>
               <Link href="/cart" className="text-gray-500 flex items-center">
                 <FaShoppingCart className="mr-1" />
-                {cartCount > 0 && <span className="text-xs bg-red-500 text-white rounded-full px-2 ml-1">{cartCount}</span>}
+                {cartCount}
               </Link>
             </li>
             <li>
