@@ -27,8 +27,6 @@ interface AppContextType {
   login: (email: string, password: string) => Promise<boolean>
   register: (name: string, email: string, password: string) => Promise<boolean>
   logout: () => Promise<void>
-  forgotPassword: (email: string) => Promise<boolean>
-  resetPassword: (token: string, newPassword: string) => Promise<boolean>
   cart: CartItem[]
   addToCart: (product: Product) => void
   removeFromCart: (productId: number) => void
@@ -47,6 +45,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [cart, setCart] = useState<CartItem[]>([])
   const [wishlist, setWishlist] = useState<Product[]>([])
   const router = useRouter()
+
+  // Mock user database
+  const [users, setUsers] = useState<{ [email: string]: { name: string; password: string } }>({
+    "user@example.com": { name: "John Doe", password: "password" },
+  })
 
   useEffect(() => {
     const savedUser = localStorage.getItem("user")
@@ -83,11 +86,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   }, [wishlist])
 
   const login = async (email: string, password: string): Promise<boolean> => {
-    // Simulating API call
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
-    if (email === "user@example.com" && password === "password") {
-      const user: User = { id: 1, name: "John Doe", email: email }
+    const userInfo = users[email]
+    if (userInfo && userInfo.password === password) {
+      const user: User = { id: Date.now(), name: userInfo.name, email: email }
       setUser(user)
       setIsLoggedIn(true)
       return true
@@ -96,8 +99,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   }
 
   const register = async (name: string, email: string, password: string): Promise<boolean> => {
-    // Simulating API call
     await new Promise((resolve) => setTimeout(resolve, 1000))
+
+    if (users[email]) {
+      return false // User already exists
+    }
+
+    setUsers((prevUsers) => ({
+      ...prevUsers,
+      [email]: { name, password },
+    }))
 
     const user: User = { id: Date.now(), name, email }
     setUser(user)
@@ -106,7 +117,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   }
 
   const logout = async (): Promise<void> => {
-    // Simulating API call
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
     setUser(null)
@@ -117,22 +127,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     localStorage.removeItem("cart")
     localStorage.removeItem("wishlist")
     router.push("/login")
-  }
-
-  const forgotPassword = async (email: string): Promise<boolean> => {
-    // Simulating API call
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    console.log(`Password reset requested for ${email}`)
-    return true
-  }
-
-  const resetPassword = async (token: string, newPassword: string): Promise<boolean> => {
-    // Simulating API call
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    console.log(`Password reset with token ${token}`)
-    return true
   }
 
   const addToCart = (product: Product) => {
@@ -180,8 +174,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         login,
         register,
         logout,
-        forgotPassword,
-        resetPassword,
         cart,
         addToCart,
         removeFromCart,

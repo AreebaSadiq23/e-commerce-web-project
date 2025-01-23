@@ -3,17 +3,26 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { FaUser, FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
-import { Heart, LogOut } from 'lucide-react'; 
-import { useAppContext } from '../app/context/AppContext'; 
+import { Heart, LogOut } from 'lucide-react';
+import { useAppContext } from '../app/context/AppContext';
 
 const Header = () => {
-  const { isLoggedIn, cart, user, logout } = useAppContext();
+  const { isLoggedIn, logout, cart, user } = useAppContext();
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false); 
 
-  // Calculate the total items in the cart
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
-  // State for toggling the mobile menu
-  const [menuOpen, setMenuOpen] = useState(false);
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+    try {
+      await logout();
+    } catch (error) {
+      console.error('Logout failed:', error);
+    } finally {
+      setIsLoggingOut(false);
+    }
+  };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -63,9 +72,13 @@ const Header = () => {
           {isLoggedIn ? (
             <div className="flex items-center space-x-2">
               <span className="text-gray-600">Welcome, {user?.name}</span>
-              <button onClick={logout} className="text-gray-600 hover:text-gray-800">
+              <button
+                onClick={handleLogout}
+                disabled={isLoggingOut}
+                className="text-gray-600 hover:text-gray-800 disabled:opacity-50"
+              >
                 <LogOut className="inline-block mr-1" size={20} />
-                Logout
+                {isLoggingOut ? 'Logging out...' : 'Logout'}
               </button>
             </div>
           ) : (
@@ -92,7 +105,6 @@ const Header = () => {
       {menuOpen && (
         <nav className="lg:hidden bg-gray-100 py-4 px-6">
           <ul className="flex flex-col space-y-4">
-            {/* Navigation Links */}
             <li>
               <Link href="/" className="text-gray-700 hover:text-blue-500">
                 Home
@@ -113,12 +125,11 @@ const Header = () => {
                 Pricing
               </Link>
             </li>
-            {/* Mobile Icons */}
             <li>
               {isLoggedIn ? (
                 <div>
                   <span className="text-gray-700">Welcome, {user?.name}!</span>
-                  <button onClick={logout} className="text-gray-700 hover:text-gray-500 ml-4">
+                  <button onClick={handleLogout} className="text-gray-700 hover:text-gray-500 ml-4">
                     Logout
                   </button>
                 </div>
