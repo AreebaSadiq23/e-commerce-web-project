@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import sanityClient from "@sanity/client";
 import Image from "next/image";
+import Navbar from "../navbar";
 
 const sanity = sanityClient({
   projectId: "4qicm0s5",
@@ -55,6 +56,7 @@ const ProductCards: React.FC = () => {
   }, []);
 
   return (
+    <><Navbar/>
     <div className="p-4">
       <h2 className="text-center text-slate-800 mt-4 mb-4 font-bold text-lg">
         Products from API&apos;s Data
@@ -108,6 +110,7 @@ const ProductCards: React.FC = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

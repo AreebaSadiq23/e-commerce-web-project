@@ -82,19 +82,19 @@ const Header = () => {
               </button>
             </div>
           ) : (
-            <Link href="/login" className="text-gray-600 hover:text-gray-800">
+            <Link href="/login" className="text-blue-500 hover:text-blue-400">
               <FaUser className="inline-block mr-1" size={20} />
               Login
             </Link>
           )}
           <div className="relative">
-            <Link href="/cart" className="text-gray-500 flex items-center text-xl">
+            <Link href="/cart" className="text-blue-500 flex items-center text-xl">
               <FaShoppingCart className="mr-1" />
               {cartCount}
             </Link>
           </div>
           <div className="relative">
-            <Link href="/wishlist" className="text-red-500 flex items-center">
+            <Link href="/wishlist" className="text-blue-500 flex items-center">
               <Heart className="mr-1" />
             </Link>
           </div>
