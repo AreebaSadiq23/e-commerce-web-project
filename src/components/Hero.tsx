@@ -17,7 +17,7 @@ const HeroSection = () => {
       <div className="container mx-auto relative z-10 flex flex-col lg:flex-row items-center justify-center lg:justify-between px-6">
         {/* Left Section: Text Content */}
         <div className="text-center lg:text-left w-full lg:w-1/2 space-y-6 mt-12 lg:mt-0 lg:ml-8">
-          <h5 className="text-white text-xl lg:text-2xl">SUMMER 2020</h5>
+          <h5 className="text-white text-xl lg:text-2xl">SUMMER 2025</h5>
           <h1 className="text-4xl lg:text-6xl font-bold text-white mb-10">
             New Collection
           </h1>
@@ -27,7 +27,7 @@ const HeroSection = () => {
           {/* Shop Now Button */}
           <a
             href="/ShopPage"
-            className="inline-block mt-6 px-10 py-4 bg-green-600 text-white text-lg font-semibold"
+            className="inline-block mt-6 px-10 py-4 bg-green-700 rounded-lg hover:bg-green-600 text-white text-lg font-semibold"
           >
             Shop Now
           </a>

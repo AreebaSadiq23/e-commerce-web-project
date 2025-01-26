@@ -3,12 +3,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 const BannerSection = () => {
-  const [cartCount, setCartCount] = useState(0); 
-
-  // Function to handle "Add to Cart"
   const handleAddToCart = () => {
-    setCartCount(cartCount + 1); 
-    alert("Item added to cart!");
+    // Handle add to cart logic here
+    console.log("Added to Cart");
   };
 
   return (
@@ -37,12 +34,6 @@ const BannerSection = () => {
               Add To Cart
             </button>
           </div>
-          {/* Cart Count Display */}
-          <div className="mt-4 sm:ml-10 lg:ml-48">
-            <p className="text-white text-lg">
-              Cart Items: <span className="font-bold">{cartCount}</span>
-            </p>
-          </div>
         </div>
 
         {/* Right Section: Image */}
@@ -58,6 +49,6 @@ const BannerSection = () => {
       </div>
     </div>
   );
-};
+}
 
 export default BannerSection;

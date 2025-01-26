@@ -7,11 +7,12 @@ import { Heart, LogOut } from 'lucide-react';
 import { useAppContext } from '../app/context/AppContext';
 
 const Header = () => {
-  const { isLoggedIn, logout, cart, user } = useAppContext();
+  const { isLoggedIn, logout, cart, user, wishlist } = useAppContext();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false); 
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+  const wishlistCount = wishlist.reduce((total, item) => total + item.quantity, 0); // Add wishlist count logic
 
   const handleLogout = async () => {
     setIsLoggingOut(true);
@@ -36,7 +37,11 @@ const Header = () => {
 
         {/* Hamburger Menu Icon */}
         <div className="lg:hidden">
-          <button onClick={toggleMenu} className="text-gray-800 text-2xl focus:outline-none">
+          <button 
+            onClick={toggleMenu} 
+            className="text-gray-800 text-2xl focus:outline-none" 
+            aria-expanded={menuOpen ? 'true' : 'false'} 
+            aria-controls="mobile-menu">
             {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
@@ -44,26 +49,10 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex space-x-6">
           <ul className="flex space-x-6">
-            <li>
-              <Link href="/" className="text-gray-700 hover:text-blue-500">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/ShopPage" className="text-gray-700 hover:text-blue-500">
-                Shop
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="text-gray-700 hover:text-blue-500">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/pricing" className="text-gray-700 hover:text-blue-500">
-                Pricing
-              </Link>
-            </li>
+            <li><Link href="/" className="text-gray-700 hover:text-blue-500">Home</Link></li>
+            <li><Link href="/ShopPage" className="text-gray-700 hover:text-blue-500">Shop</Link></li>
+            <li><Link href="/about" className="text-gray-700 hover:text-blue-500">About</Link></li>
+            <li><Link href="/pricing" className="text-gray-700 hover:text-blue-500">Pricing</Link></li>
           </ul>
         </nav>
 
@@ -75,8 +64,7 @@ const Header = () => {
               <button
                 onClick={handleLogout}
                 disabled={isLoggingOut}
-                className="text-gray-600 hover:text-gray-800 disabled:opacity-50"
-              >
+                className="text-gray-600 hover:text-gray-800 disabled:opacity-50">
                 <LogOut className="inline-block mr-1" size={20} />
                 {isLoggingOut ? 'Logging out...' : 'Logout'}
               </button>
@@ -96,6 +84,7 @@ const Header = () => {
           <div className="relative">
             <Link href="/wishlist" className="text-blue-500 flex items-center">
               <Heart className="mr-1" />
+              {wishlistCount}
             </Link>
           </div>
         </div>
@@ -103,28 +92,12 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <nav className="lg:hidden bg-gray-100 py-4 px-6">
+        <nav id="mobile-menu" className="lg:hidden bg-gray-100 py-4 px-6">
           <ul className="flex flex-col space-y-4">
-            <li>
-              <Link href="/" className="text-gray-700 hover:text-blue-500">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/ShopPage" className="text-gray-700 hover:text-blue-500">
-                Shop
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="text-gray-700 hover:text-blue-500">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/pricing" className="text-gray-700 hover:text-blue-500">
-                Pricing
-              </Link>
-            </li>
+            <li><Link href="/" className="text-gray-700 hover:text-blue-500">Home</Link></li>
+            <li><Link href="/ShopPage" className="text-gray-700 hover:text-blue-500">Shop</Link></li>
+            <li><Link href="/about" className="text-gray-700 hover:text-blue-500">About</Link></li>
+            <li><Link href="/pricing" className="text-gray-700 hover:text-blue-500">Pricing</Link></li>
             <li>
               {isLoggedIn ? (
                 <div>

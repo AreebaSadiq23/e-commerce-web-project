@@ -34,9 +34,10 @@ interface AppContextType {
   removeFromCart: (productId: number) => void
   updateCartItemQuantity: (productId: number, quantity: number) => void
   clearCart: () => void
-  wishlist: Product[]
+  wishlist: CartItem[]  
   addToWishlist: (product: Product) => void
   removeFromWishlist: (productId: number) => void
+  wishlistCount: number
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined)
@@ -45,7 +46,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [user, setUser] = useState<User | null>(null)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [cart, setCart] = useState<CartItem[]>([])
-  const [wishlist, setWishlist] = useState<Product[]>([])
+  const [wishlist, setWishlist] = useState<CartItem[]>([])
   const router = useRouter()
 
   // Mock user database
@@ -155,18 +156,26 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setCart([])
   }
 
+  // Add to Wishlist
   const addToWishlist = (product: Product) => {
     setWishlist((prevWishlist) => {
-      if (!prevWishlist.some((item) => item.id === product.id)) {
-        return [...prevWishlist, product]
+      const existingItem = prevWishlist.find((item) => item.id === product.id)
+      if (existingItem) {
+        return prevWishlist.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        )
       }
-      return prevWishlist
+      return [...prevWishlist, { ...product, quantity: 1 }]
     })
   }
 
+  // Remove from Wishlist
   const removeFromWishlist = (productId: number) => {
     setWishlist((prevWishlist) => prevWishlist.filter((item) => item.id !== productId))
   }
+
+  // Wishlist Count
+  const wishlistCount = wishlist.reduce((total, item) => total + item.quantity, 0)
 
   return (
     <AppContext.Provider
@@ -184,6 +193,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         wishlist,
         addToWishlist,
         removeFromWishlist,
+        wishlistCount,
       }}
     >
       {children}
@@ -198,4 +208,3 @@ export const useAppContext = () => {
   }
   return context
 }
-
