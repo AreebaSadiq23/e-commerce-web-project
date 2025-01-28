@@ -1,208 +1,179 @@
-"use client";
+import { FiList, FiGrid } from 'react-icons/fi'; 
+import Image from 'next/image';
+import Header from '@/components/Header';
+import Link from 'next/link';
 
-import type React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { ChevronRightIcon } from "@heroicons/react/24/solid";
-import Header from "@/components/Header";
-import { Heart, ShoppingCart } from "lucide-react";
-import { useAppContext } from "../context/AppContext";
+const images = [
+  "/hero/1.png",
+  "/hero/product2.png",
+  "/hero/2.png",
+  "/hero/3.png",
+  "/hero/4.png"
+];
 
 interface Product {
   id: number;
-  name: string;
-  title:string;
+  title: string;
+  category: string;
   price: number;
-  oldprice?:number;
   image: string;
   description: string;
 }
 
-interface ProductCardProps {
-  product: Product;
-}
+const products: Product[] = [
+  {
+    id: 1,
+    title: "Casual Jacket",
+    category: "Department",
+    price: 89.99,
+    image: "/editor/img casual.jpg",
+    description:
+      "Stay stylish and warm with this casual jacket. Perfect for outdoor adventures or daily wear, this jacket combines fashion with functionality.",
+  },
+  {
+    id: 2,
+    title: "Trendy Outfit",
+    category: "Department",
+    price: 89.99,
+    image: "/editor/trendyoutfit.jpg",
+    description:
+      "Comfort meets style with this cozy hoodie. A perfect choice for casual outings, bringing both ease and elegance.",
+  },
+  {
+    id: 3,
+    title: "Men Fashion",
+    category: "Department",
+    price: 129.99,
+    image: "/editor/men-fashion.jpg",
+    description:
+      "A trendy outfit perfect for any occasion. Elevate your style with this versatile piece made for modern fashion enthusiasts.",
+  },
+  {
+    id: 4,
+    title: "Kids Collection",
+    category: "Department",
+    price: 89.99,
+    image: "/editor/kid.jpg",
+    description:
+      "Colorful and fun outfits for kids. Let your children shine with vibrant designs tailored for both comfort and play.",
+  },
+  {
+    id: 5,
+    title: "Winter Collection",
+    category: "Department",
+    price: 89.99,
+    image: "/editor/img cozy.jpeg",
+    description:
+      "Stay warm with our winter collection. Crafted for those chilly days, this collection is a must-have for the season.",
+  },
+  {
+    id: 6,
+    title: "Woman Dress",
+    category: "Department",
+    price: 99.99,
+    image: "/editor/img9.png",
+    description:
+      "Elegant and comfortable dresses for women. These dresses are designed to bring out your confidence and charm.",
+  },
+  {
+    id: 7,
+    title: "Girls Kurti",
+    category: "Department",
+    price: 89.99,
+    image: "/editor/img kurti.png",
+    description:
+      "Stylish kurtis for girls of all ages. A perfect blend of tradition and modernity to elevate your wardrobe.",
+  },
+  {
+    id: 8,
+    title: "Designer Dress",
+    category: "Department",
+    price: 89.99,
+    image: "/editor/img pur.jpeg",
+    description:
+      "Exclusive designer dresses for special events. Make a bold statement with these high-end outfits.",
+  },
+];
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const { addToCart, wishlist, addToWishlist, removeFromWishlist } = useAppContext();
-
-  const isWishlisted = wishlist.some((item) => item.id === product.id);
-
-  const handleAddToCart = () => {
-    addToCart(product);
-  };
-
-  const handleToggleWishlist = () => {
-    if (isWishlisted) {
-      removeFromWishlist(product.id);
-    } else {
-      addToWishlist(product);
-    }
-  };
-
-  return (
-    <div className="flex justify-center transform transition-transform hover:scale-105">
-      <div className="w-[239px] h-auto bg-white p-[25px] pb-[35px] shadow-lg hover:shadow-2xl transition-shadow duration-300 rounded-md">
-        <Image
-          src={product.image || "/placeholder.svg"}
-          alt={product.name}
-          width={239}
-          height={188}
-          className="object-cover transition-transform duration-300 hover:scale-110 rounded-md"
-        />
-        <h3 className="text-2xl font-semibold mt-6 text-black">{product.name}</h3>
-        <h4 className="text-gray-600 mt-4 text-center font-semibold">{product.title}</h4>
-        <p className="text-md text-gray-600 mt-4">{product.description}</p>
-        <div className="flex justify-center mt-2 space-x-2 mr-5">
-          <p className="text-green-800">${product.price.toFixed(2)}</p>
-          <p className="text-gray-400 line-through">$129.99</p>
-        </div>
-        <div className="flex justify-center mt-5 space-x-2">
-          <div className="w-4 h-4 rounded-full bg-red-500"></div>
-          <div className="w-4 h-4 rounded-full bg-blue-500"></div>
-          <div className="w-4 h-4 rounded-full bg-yellow-500"></div>
-          <div className="w-4 h-4 rounded-full bg-green-500"></div>
-        </div>
-        <div className="flex justify-between mt-4">
-          {/* Add to Cart Button */}
-          <button
-            onClick={handleAddToCart}
-            className="relative group"
-          >
-            <ShoppingCart className="inline-block mr-1" size={20} />
-            <span className="absolute left-1/2 bottom-full transform -translate-x-1/2 mb-2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-              Add to Cart
-            </span>
-          </button>
-
-          {/* Wishlist Button */}
-          <button
-            onClick={handleToggleWishlist}
-            className={`relative group p-2 rounded ${isWishlisted ? "text-red-500" : "text-gray-500"}`}
-          >
-            <Heart
-              className="inline-block"
-              size={20}
-              fill={isWishlisted ? "currentColor" : "none"}
-            />
-            <span className="absolute left-1/2 bottom-full transform -translate-x-1/2 mb-2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-              {isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"}
-            </span>
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const ShopPageClient = () => {
-  const products: Product[] = [
-    {
-      id: 1,
-      name: "Graphic Design",
-      title:"English Department",
-      price: 99.99,
-      image: "/editor/img8.png",
-      description: "Enhance your creative projects with this amazing design.",
-    },
-    {
-      id: 2,
-      name: "Graphic Design",
-      title:"English Department",
-      price: 79.99,
-      image: "/editor/img13.png",
-      description: "Perfect for any branding or marketing materials.",
-    },
-    {
-      id: 3,
-      name: "Graphic Design",
-      title:"English Department",
-      price: 59.99,
-      image: "/editor/img6.png",
-      description: "Professional-grade design for all your needs.",
-    },
-    {
-      id: 4,
-      name: "Graphic Design",
-      title:"English Department",
-      price: 129.99,
-      image: "/editor/img7.png",
-      description: "Premium design for impactful visuals.",
-    },
-    {
-      id: 5,
-      name: "Graphic Design",
-      title:"English Department",
-      price: 24.99,
-      image: "/editor/img9.png",
-      description: "Affordable design with excellent quality.",
-    },
-    {
-      id: 6,
-      name: "Graphic Design",
-      title:"English Department",
-      price: 49.99,
-      image: "/editor/img12.png",
-      description: "Simple yet elegant design for daily use.",
-    },
-    {
-      id: 7,
-      name: "Graphic Design",
-      title:"English Department",
-      price: 89.99,
-      image: "/editor/img10.png",
-      description: "High-quality design for professional projects.",
-    },
-    {
-      id: 8,
-      name: "Graphic Design",
-      title:"English Department",
-      price: 69.99,
-      image: "/editor/img11.png",
-      description: "Versatile design suitable for various purposes.",
-    },
-  ];
-
+const HomePage = () => {
   return (
     <>
       <Header />
-      <div className="container mx-auto my-12 px-4 max-w-screen-2xl">
-        {/* Header Section */}
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-semibold">Shop</h1>
-          <div className="breadcrumb flex items-center text-gray-500 space-x-2">
-            <span>Home</span>
-            <ChevronRightIcon className="w-4 h-4 text-gray-400" />
-            <span className="font-semibold text-gray-800">Shop</span>
-          </div>
-        </div>
-
-        {/* Product Grid Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+      <div className="container mx-auto px-4">
+        {/* 5 Images Layout */}
+        <div className="grid grid-cols-5 gap-4 justify-center mt-10">
+          {images.map((img, index) => (
+            <div key={index} className="relative group">
+              <Image src={img} alt={`Image ${index + 1}`} width={200} height={200} className="w-full h-auto object-cover" />
+              <div className="absolute text-center top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 text-white p-4">
+                <h3 className="text-xl font-bold mt-20">Trending Apparel</h3>
+                <p className="text-md">Explore 5 Stylish Products</p>
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* Pagination Buttons */}
-        <div className="flex justify-center items-center mt-12">
-          {/* Previous Button */}
-          <Link href="/" className="px-6 py-4 bg-white text-gray-700 border border-gray-400 text-sm">
-            Previous
-          </Link>
+        {/* Filter and Popularity Options Below Cards */}
+        <div className="flex justify-between items-center mt-10">
+          {/* Showing Results on the Left */}
+          <div className="text-md text-gray-500 font-bold">Showing all 12 results</div>
 
-          {/* Page Buttons */}
-          <button className="px-4 py-4 bg-white text-gray-700 border border-gray-400 text-sm">1</button>
-          <button className="px-4 py-4 bg-blue-600 text-white border border-blue-400 text-sm">2</button>
-          <button className="px-4 py-4 bg-white text-gray-700 border border-gray-400 text-sm">3</button>
+          {/* Menu Icon and Filter Icon Centered */}
+          <div className="flex items-center space-x-4">
+            <h2 className='text-gray-600 font-bold'>Views:</h2>
+            <button className="bg-gray-200 p-2  flex items-center space-x-2">
+              <FiGrid className="text-gray-600" />
+            </button>
+            <button className="bg-gray-200 p-2 flex items-center space-x-2">
+              <FiList className="text-gray-600" />
+            </button>
+          </div>
 
-          {/* Next Button */}
-          <Link href="/page2" className="px-6 py-4 bg-white text-gray-700 border border-gray-400 text-sm">
-            Next
-          </Link>
+          {/* Popularity and Sorting on the Right */}
+          <select className="bg-gray-200 p-2 rounded">
+            <option className="bg-gray-200 p-2 rounded">Popularity</option>
+            <option>High to Low</option>
+            <option>Low to High</option>
+          </select>
         </div>
+
+        {/* Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
+        {products.map((product) => (
+          <Link key={product.id} href={`/card/${product.id}`}>
+            <div
+              className="bg-white rounded-lg shadow-lg hover:shadow-xl transform transition-transform hover:scale-105 flex flex-col cursor-pointer"
+            >
+              {/* Product Image */}
+              <div className="relative w-full h-72">
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-t-lg"
+                />
+              </div>
+
+              {/* Product Content */}
+              <div className="flex flex-col p-6 flex-grow">
+                <h3 className="text-3xl font-semibold text-gray-800">{product.title}</h3>
+                <p className="text-sm text-gray-500 mt-1">{product.category}</p>
+                <p className="text-gray-600 text-sm mt-3">{product.description}</p>
+
+                {/* Price Section */}
+                <div className="flex items-center justify-between mt-4">
+                  <span className="text-lg font-bold text-blue-600">${product.price}</span>
+                  <span className="text-sm text-gray-400 line-through">$129.99</span>
+                </div>
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
+    </div>
     </>
   );
 };
 
-export default ShopPageClient;
+export default HomePage;

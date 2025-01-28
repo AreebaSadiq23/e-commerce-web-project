@@ -12,7 +12,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
-  const wishlistCount = wishlist.reduce((total, item) => total + item.quantity, 0); // Add wishlist count logic
+  const wishlistCount = wishlist.reduce((total, item) => total + item.quantity, 0); 
 
   const handleLogout = async () => {
     setIsLoggingOut(true);
@@ -70,19 +70,19 @@ const Header = () => {
               </button>
             </div>
           ) : (
-            <Link href="/login" className="text-blue-500 hover:text-blue-400">
+            <Link href="/login" className="text-blue-400 hover:text-blue-300">
               <FaUser className="inline-block mr-1" size={20} />
               Login
             </Link>
           )}
           <div className="relative">
-            <Link href="/cart" className="text-blue-500 flex items-center text-xl">
+            <Link href="/cart" className="text-blue-400 flex items-center text-lg">
               <FaShoppingCart className="mr-1" />
               {cartCount}
             </Link>
           </div>
           <div className="relative">
-            <Link href="/wishlist" className="text-blue-500 flex items-center">
+            <Link href="/wishlist" className="text-blue-400 flex items-center text-lg">
               <Heart className="mr-1" />
               {wishlistCount}
             </Link>
@@ -107,20 +107,21 @@ const Header = () => {
                   </button>
                 </div>
               ) : (
-                <Link href="/login" className="flex items-center text-blue-500">
+                <Link href="/login" className="flex items-center text-blue-300">
                   <FaUser className="mr-2" /> Login/Register
                 </Link>
               )}
             </li>
             <li>
-              <Link href="/cart" className="text-gray-500 flex items-center">
+              <Link href="/cart" className="text-blue-300 flex items-center">
                 <FaShoppingCart className="mr-1" />
                 {cartCount}
               </Link>
             </li>
             <li>
-              <Link href="/wishlist" className="text-red-500 flex items-center">
+              <Link href="/wishlist" className="text-blue-300 flex items-center">
                 <Heart className="mr-1" />
+                {wishlistCount}
               </Link>
             </li>
           </ul>

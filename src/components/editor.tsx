@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React from "react";
 
-const EditorsPics = () => {
+const Editors = () => {
   return (
     <div className="flex flex-col items-center justify-center text-center mt-16 mb-7 bg-white">
       <div>
@@ -105,4 +105,4 @@ const EditorsPics = () => {
   );
 };
 
-export default EditorsPics;
+export default Editors;

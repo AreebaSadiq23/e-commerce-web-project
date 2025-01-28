@@ -34,7 +34,7 @@ interface AppContextType {
   removeFromCart: (productId: number) => void
   updateCartItemQuantity: (productId: number, quantity: number) => void
   clearCart: () => void
-  wishlist: CartItem[]  
+  wishlist: CartItem[]
   addToWishlist: (product: Product) => void
   removeFromWishlist: (productId: number) => void
   wishlistCount: number
@@ -54,6 +54,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     "user@example.com": { name: "John Doe", password: "password" },
   })
 
+  // Load saved data from localStorage
   useEffect(() => {
     const savedUser = localStorage.getItem("user")
     if (savedUser) {
@@ -72,6 +73,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   }, [])
 
+  // Save user, cart, and wishlist to localStorage
   useEffect(() => {
     if (user) {
       localStorage.setItem("user", JSON.stringify(user))
@@ -88,6 +90,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     localStorage.setItem("wishlist", JSON.stringify(wishlist))
   }, [wishlist])
 
+  // Login function
   const login = async (email: string, password: string): Promise<boolean> => {
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
@@ -101,6 +104,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return false
   }
 
+  // Register function
   const register = async (name: string, email: string, password: string): Promise<boolean> => {
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
@@ -119,6 +123,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return true
   }
 
+  // Logout function
   const logout = async (): Promise<void> => {
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
@@ -132,6 +137,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     router.push("/login")
   }
 
+  // Add item to cart
   const addToCart = (product: Product) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id)
@@ -142,21 +148,24 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     })
   }
 
+  // Remove item from cart
   const removeFromCart = (productId: number) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId))
   }
 
+  // Update item quantity in cart
   const updateCartItemQuantity = (productId: number, quantity: number) => {
     setCart((prevCart) =>
       prevCart.map((item) => (item.id === productId ? { ...item, quantity: Math.max(0, quantity) } : item)),
     )
   }
 
+  // Clear cart
   const clearCart = () => {
     setCart([])
   }
 
-  // Add to Wishlist
+  // Add item to wishlist
   const addToWishlist = (product: Product) => {
     setWishlist((prevWishlist) => {
       const existingItem = prevWishlist.find((item) => item.id === product.id)
@@ -169,12 +178,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     })
   }
 
-  // Remove from Wishlist
+  // Remove item from wishlist
   const removeFromWishlist = (productId: number) => {
     setWishlist((prevWishlist) => prevWishlist.filter((item) => item.id !== productId))
   }
 
-  // Wishlist Count
+  // Calculate total wishlist count
   const wishlistCount = wishlist.reduce((total, item) => total + item.quantity, 0)
 
   return (

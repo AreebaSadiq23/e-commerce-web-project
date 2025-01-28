@@ -1,48 +1,135 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const CardSection = () => {
-  const products = [
-    { id: 1, title: "Casual jacket", category: "Department", price: 89.99, image: "/editor/img casual.jpg" },
-    { id: 2, title: "Trendy OutFit", category: "Department", price: 129.99, image: "/editor/trendyoutfit.jpg" },
-    { id: 3, title: "Man Shirt", category: "Department", price: 89.99, image: "/editor/img4.png" },
-    { id: 4, title: "Summer T-shirt", category: "Department", price: 89.99, image: "/editor/img8.png" },
-    { id: 5, title: "Woman Dress", category: "Department", price: 99.99, image: "/editor/img9.png" },
-    { id: 6, title: "Girls Kurti", category: "Department", price: 89.99, image: "/editor/img kurti.png" },
-    { id: 7, title: "Designer Dress", category: "Department", price: 89.99, image: "/editor/img.jpg" },
-    { id: 8, title: "Kids collection", category: "Department", price: 89.99, image: "/editor/img kid.png" },
-  ];
+interface Product {
+  id: number;
+  title: string;
+  category: string;
+  price: number;
+  image: string;
+  description: string;
+}
 
+const products: Product[] = [
+  {
+    id: 1,
+    title: "Casual Jacket",
+    category: "Department",
+    price: 89.99,
+    image: "/editor/img casual.jpg",
+    description:
+      "Stay stylish and warm with this casual jacket. Perfect for outdoor adventures or daily wear, this jacket combines fashion with functionality.",
+  },
+  {
+    id: 2,
+    title: "Trendy Outfit",
+    category: "Department",
+    price: 89.99,
+    image: "/editor/trendyoutfit.jpg",
+    description:
+      "Comfort meets style with this cozy hoodie. A perfect choice for casual outings, bringing both ease and elegance.",
+  },
+  {
+    id: 3,
+    title: "Men Fashion",
+    category: "Department",
+    price: 129.99,
+    image: "/editor/men-fashion.jpg",
+    description:
+      "A trendy outfit perfect for any occasion. Elevate your style with this versatile piece made for modern fashion enthusiasts.",
+  },
+  {
+    id: 4,
+    title: "Kids Collection",
+    category: "Department",
+    price: 89.99,
+    image: "/editor/kid.jpg",
+    description:
+      "Colorful and fun outfits for kids. Let your children shine with vibrant designs tailored for both comfort and play.",
+  },
+  {
+    id: 5,
+    title: "Winter Collection",
+    category: "Department",
+    price: 89.99,
+    image: "/editor/img cozy.jpeg",
+    description:
+      "Stay warm with our winter collection. Crafted for those chilly days, this collection is a must-have for the season.",
+  },
+  {
+    id: 6,
+    title: "Woman Dress",
+    category: "Department",
+    price: 99.99,
+    image: "/editor/img9.png",
+    description:
+      "Elegant and comfortable dresses for women. These dresses are designed to bring out your confidence and charm.",
+  },
+  {
+    id: 7,
+    title: "Girls Kurti",
+    category: "Department",
+    price: 89.99,
+    image: "/editor/img kurti.png",
+    description:
+      "Stylish kurtis for girls of all ages. A perfect blend of tradition and modernity to elevate your wardrobe.",
+  },
+  {
+    id: 8,
+    title: "Designer Dress",
+    category: "Department",
+    price: 89.99,
+    image: "/editor/img pur.jpeg",
+    description:
+      "Exclusive designer dresses for special events. Make a bold statement with these high-end outfits.",
+  },
+];
+
+const CardSection: React.FC = () => {
   return (
-    <div className="py-20 px-4 bg-gray-50 max-w-screen-2xl mx-auto">
+    <div className="py-16 px-6 bg-gray-50 max-w-screen-2xl mx-auto">
+      {/* Section Header */}
       <div className="text-center mb-12">
-        <h3 className="text-xl font-semibold text-blue-600">Featured Product</h3>
-        <h2 className="text-3xl font-bold text-gray-800 mt-4">Best Seller Products</h2>
-        <p className="text-gray-500 mt-4">Problems solving and trying to resolve the conflict between</p>
+        <h3 className="text-lg font-semibold text-blue-500 uppercase tracking-wide">
+          Featured Products
+        </h3>
+        <h2 className="text-4xl font-bold text-gray-800 mt-2">Our Best Sellers</h2>
+        <p className="text-gray-500 mt-4">Explore our most popular items, curated just for you.</p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+
+      {/* Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {products.map((product) => (
-          <div key={product.id} className="flex justify-center transform transition-transform hover:scale-105">
-            <Link href={`/card/${product.id}`}>
-              <div className="w-[239px] h-auto bg-white p-[25px] pb-[35px] shadow-lg hover:shadow-2xl transition-shadow duration-300 rounded-lg">
+          <Link key={product.id} href={`/card/${product.id}`}>
+            <div
+              className="bg-white rounded-lg shadow-lg hover:shadow-xl transform transition-transform hover:scale-105 flex flex-col cursor-pointer"
+            >
+              {/* Product Image */}
+              <div className="relative w-full h-72">
                 <Image
                   src={product.image}
-                  alt={`Card Image ${product.id}`}
-                  width={239}
-                  height={188}
-                  className="object-cover transition-transform duration-300 hover:scale-110 rounded-md"
+                  alt={product.title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-t-lg"
                 />
-                <h3 className="text-xl font-semibold mt-4 text-center text-black">{product.title}</h3>
-                <h4 className="text-gray-600 mt-2 text-center">{product.category}</h4>
-                <div className="flex justify-center items-center mt-2 space-x-2">
-                  <p className="text-gray-500">${product.price}</p>
-                  <p className="text-gray-400 line-through">$129.99</p>
+              </div>
+
+              {/* Product Content */}
+              <div className="flex flex-col p-6 flex-grow">
+                <h3 className="text-3xl font-semibold text-gray-800">{product.title}</h3>
+                <p className="text-sm text-gray-500 mt-1">{product.category}</p>
+                <p className="text-gray-600 text-sm mt-3">{product.description}</p>
+
+                {/* Price Section */}
+                <div className="flex items-center justify-between mt-4">
+                  <span className="text-lg font-bold text-blue-600">${product.price}</span>
+                  <span className="text-sm text-gray-400 line-through">$129.99</span>
                 </div>
               </div>
-            </Link>
-          </div>
+            </div>
+          </Link>
         ))}
       </div>
     </div>
