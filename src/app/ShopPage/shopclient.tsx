@@ -179,12 +179,12 @@ const HomePage = () => {
         {/* Filter and Popularity Options Below Cards */}
         <div className="flex flex-col sm:flex-row justify-between items-center mt-10">
           {/* Showing Results on the Left */}
-          <div className="text-md text-gray-500 font-bold">
+          <div className="text-md text-gray-500 font-bold mt-7">
             Showing all {products.length} results
           </div>
 
           {/* Menu Icon and Filter Icon Centered */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 mt-7">
             <h2 className="text-gray-600 font-bold">Views:</h2>
             <button className="bg-gray-200 p-2 flex items-center space-x-2">
               <FiGrid className="text-gray-600" />
@@ -196,11 +196,11 @@ const HomePage = () => {
 
           {/* Popularity and Sorting on the Right */}
           <select
-            className="bg-gray-200 p-2 rounded"
+            className="bg-gray-200 p-2 rounded mt-7"
             value={sortOption}
             onChange={handleSort}
           >
-            <option className="bg-gray-200 p-2 rounded">Popularity</option>
+            <option className="bg-gray-200 p-2">Popularity</option>
             <option>High to Low</option>
             <option>Low to High</option>
           </select>
