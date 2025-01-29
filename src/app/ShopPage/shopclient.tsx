@@ -156,9 +156,9 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      <div className="container mx-auto px-4 mb-10">
+      <div className="container mx-auto px-4 mb-10 ">
         {/* 5 Images Layout */}
-        <div className="grid grid-cols-5 gap-4 justify-center mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 justify-center mt-10">
           {images.map((img, index) => (
             <div key={index} className="relative group">
               <Image
@@ -177,7 +177,7 @@ const HomePage = () => {
         </div>
 
         {/* Filter and Popularity Options Below Cards */}
-        <div className="flex justify-between items-center mt-10">
+        <div className="flex flex-col sm:flex-row justify-between items-center mt-10">
           {/* Showing Results on the Left */}
           <div className="text-md text-gray-500 font-bold">
             Showing all {products.length} results
