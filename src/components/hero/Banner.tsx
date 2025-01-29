@@ -1,13 +1,7 @@
-'use client'
-import React, { useState } from "react";
 import Image from "next/image";
 
 const BannerSection = () => {
-  const handleAddToCart = () => {
-    // Handle add to cart logic here
-    console.log("Added to Cart");
-  };
-
+ 
   return (
     <div className="bg-emerald-800 py-20 px-6 max-w-screen-2xl mx-auto">
       <div className="container flex flex-wrap items-center">
@@ -28,7 +22,6 @@ const BannerSection = () => {
           <div className="mt-6 flex items-center space-x-6 sm:ml-10 lg:ml-48 lg:mt-10">
             <span className="text-2xl font-semibold text-white">$16.48</span>
             <button
-              onClick={handleAddToCart}
               className="inline-block bg-green-600 text-white text-lg font-medium px-10 py-3 rounded hover:bg-green-700 transition"
             >
               Add To Cart

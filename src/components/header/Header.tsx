@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { FaUser, FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
-import { FiChevronDown } from 'react-icons/fi';
 import { Heart, LogOut } from 'lucide-react';
 import { useAppContext } from '../../app/context/AppContext';
 
@@ -51,7 +50,7 @@ const Header = () => {
         <nav className="hidden lg:flex space-x-6">
           <ul className="flex space-x-6">
             <li><Link href="/" className="text-gray-700 hover:text-blue-500">Home</Link></li>
-            <li><Link href="/ShopPage" className="text-gray-700 hover:text-blue-500">Shop<FiChevronDown /></Link></li>
+            <li><Link href="/ShopPage" className="text-gray-700 hover:text-blue-500">Shop</Link></li>
             <li><Link href="/about" className="text-gray-700 hover:text-blue-500">About</Link></li>
             <li><Link href="/pricing" className="text-gray-700 hover:text-blue-500">Pricing</Link></li>
           </ul>

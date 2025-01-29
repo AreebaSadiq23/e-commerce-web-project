@@ -34,7 +34,6 @@ export default function ProductDetail() {
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
   const { addToCart, addToWishlist } = useAppContext()
-  const router = useRouter();
   const { id } = useParams(); 
 
   const product = products.find((p) => p.id === Number(id));
