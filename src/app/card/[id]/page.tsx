@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Star, ShoppingCart, Heart } from 'lucide-react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import {useAppContext} from "../../context/AppContext";
 import Header from '@/components/header/Header';
 
