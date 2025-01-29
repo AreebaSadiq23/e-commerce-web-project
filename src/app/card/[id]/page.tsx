@@ -25,7 +25,7 @@ const products: Product[] = [
   { id: 7, title: "Girls Kurti", name: "Girls Kurti", category: "Department", price: 199.99, image: "/editor/img kurti.png", description: "Stylish kurtis for girls." },
   { id: 8, title: "Designer Dress", name: "Designer Dress", category: "Department", price: 59.99, image: "/editor/img pur.jpeg", description: "Exclusive designer dresses for special events." },
   { id: 9, title: "Casual Jacket", name: "Casual Jacket", category: "Department", price: 199.99, image: "/editor/img casual.jpg", description:"Stay stylish and warm with this casual jacket. Perfect for outdoor adventures or daily wear, this jacket combines fashion with functionality.",  },
-  { id: 10, title: "Woman Dress", name: "Woman Dress", category: "Department", price: 99.99, image: "/editor/img9.png", description: "Elegant and comfortable dresses for women." },
+  { id: 10, title: "Woman Dress", name: "Woman Dress", category: "Department", price: 99.99, image: "/hero/img9.png", description: "Elegant and comfortable dresses for women." },
   { id: 11, title: "Party Dress", name: "Party Dress", category: "Department", price: 199.99, image: "/editor/clo.jpg", description: "Elegant party dress perfect for special occasions. Stand out with this stylish and chic outfit." },
   { id: 12, title: "Shirt", name: "Shirt", category: "Department", price: 139.99, image: "/editor/img4.png", description:"Classic shirt for everyday wear. Comfortable and stylish, perfect for any occasion.",  },
 ];

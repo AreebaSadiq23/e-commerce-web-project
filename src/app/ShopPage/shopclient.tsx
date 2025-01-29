@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { FiList, FiGrid } from "react-icons/fi";
 import Image from "next/image";
-import Header from "@/app/header/Header";
+import Header from "@/components/header/Header";
 import Link from "next/link";
 
 const images = [
@@ -109,7 +109,7 @@ const productsData: Product[] = [
     title: "Woman Dress",
     category: "Department",
     price: 99.99,
-    image: "/editor/img9.png",
+    image: "/hero/img9.png",
     description:
       "Elegant and comfortable dresses for women. These dresses are designed to bring out your confidence and charm.",
   },

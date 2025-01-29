@@ -49,12 +49,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [wishlist, setWishlist] = useState<CartItem[]>([])
   const router = useRouter()
 
-  // Mock user database
   const [users, setUsers] = useState<{ [email: string]: { name: string; password: string } }>({
     "user@example.com": { name: "John Doe", password: "password" },
   })
 
-  // Load saved data from localStorage
   useEffect(() => {
     const savedUser = localStorage.getItem("user")
     if (savedUser) {
@@ -109,7 +107,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
     if (users[email]) {
-      return false // User already exists
+      return false 
     }
 
     setUsers((prevUsers) => ({

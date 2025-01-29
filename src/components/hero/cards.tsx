@@ -98,7 +98,7 @@ const products: Product[] = [
     title: "Woman Dress",
     category: "Department",
     price: 99.99,
-    image: "/editor/img9.png",
+    image: "/hero/img9.png",
     description:
       "Elegant and comfortable dresses for women. These dresses are designed to bring out your confidence and charm.",
   },
