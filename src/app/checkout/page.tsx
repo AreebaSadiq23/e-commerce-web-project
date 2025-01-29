@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { useAppContext } from "../context/AppContext"
-import Header from "@/components/Header"
+import Header from "@/components/header/Header"
 
 export default function Checkout() {
   const router = useRouter()
