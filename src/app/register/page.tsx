@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAppContext } from "../context/AppContext";
 import { User, Mail, Lock, Eye, EyeOff } from "lucide-react";
-import Header from "@/components/Header";
+import Header from "@/components/header/Header";
 
 export default function Register() {
   const [name, setName] = useState("");

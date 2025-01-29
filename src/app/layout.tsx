@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import PromoBanner from "@/components/promobanner";
-import Footer from "@/components/footer";
-import { AppProvider } from "./context/AppContext"
+import PromoBanner from "@/components/header/promobanner";
+import Footer from "@/components/footer/footer";
+import { AppProvider } from "../app/context/AppContext"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

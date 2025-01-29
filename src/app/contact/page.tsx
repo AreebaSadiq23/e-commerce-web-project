@@ -9,6 +9,7 @@ import {
   FaMapMarkerAlt,
   FaEnvelope,
 } from "react-icons/fa";
+import { GiWideArrowDunk } from "react-icons/gi";
 import Navbar from "../navbar";
 
 const ContactSection: React.FC = () => {
@@ -118,6 +119,11 @@ const ContactSection: React.FC = () => {
         </div>
 
         {/* Final Call-to-Action */}
+        <div className="mt-10 py-10 text-center">
+        {/* Arrow Icon */}
+        <div className="flex justify-center items-center">
+          <GiWideArrowDunk className="text-[#23A6F0] text-[80px]" />
+        </div>
         <div className="text-center my-16 mt-7">
           <h2 className="text-xl font-semibold text-gray-900 mb-4">
             We can&apos;t wait to meet you
@@ -125,9 +131,10 @@ const ContactSection: React.FC = () => {
           <h3 className="text-6xl font-bold text-gray-900 mb-4">
             Let&apos;s Talk
           </h3>
-          <button className="px-11 py-3 text-lg bg-blue-500 text-white hover:bg-blue-700 mt-5">
+          <button className="px-11 py-3 text-lg bg-blue-500 text-white hover:bg-blue-400 mt-5">
             Try It Free Now
           </button>
+        </div>
         </div>
       </section>
     </>

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Trash2 } from "lucide-react";
 import { useAppContext } from "../context/AppContext";
 import { useRouter } from "next/navigation";
-import Header from "@/components/Header";
+import Header from "@/components/header/Header";
 
 export default function Cart() {
   const router = useRouter();

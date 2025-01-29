@@ -1,8 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
+import CardSection from "@/components/hero/cards";
+import BannerSection from "@/components/hero/Banner"
+import CustomSection from "@/components/hero/customer";
+import FeaturedSection from "@/components/hero/featured";
+
 
 const HeroSection = () => {
   return (
+    <>
     <div className="relative bg-blue-100 py-56 max-w-screen-2xl mx-auto">
       <div className="absolute inset-0 w-full h-full">
         <Image
@@ -34,6 +40,11 @@ const HeroSection = () => {
         </div>
       </div>
     </div>
+    <CardSection />
+         <BannerSection />
+         <CustomSection />
+         <FeaturedSection/>
+    </>
   );
 };
 

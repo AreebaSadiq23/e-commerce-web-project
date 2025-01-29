@@ -14,21 +14,21 @@ interface Product {
 const products: Product[] = [
   {
     id: 1,
-    title: "Casual Jacket",
+    title: "Maxi Dress",
     category: "Department",
-    price: 89.99,
-    image: "/editor/img casual.jpg",
+    price: 199.99,
+    image: "/hero/maxi.jpg",
     description:
-      "Stay stylish and warm with this casual jacket. Perfect for outdoor adventures or daily wear, this jacket combines fashion with functionality.",
+      "Exclusive Maxi dresses for special events. Make a bold statement with these high-end outfits.",
   },
   {
     id: 2,
     title: "Trendy Outfit",
     category: "Department",
-    price: 89.99,
+    price: 79.99,
     image: "/editor/trendyoutfit.jpg",
     description:
-      "Comfort meets style with this cozy hoodie. A perfect choice for casual outings, bringing both ease and elegance.",
+      "Comfort meets style with this cozy. A perfect choice for casual outings, bringing both ease and elegance.",
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ const products: Product[] = [
     id: 4,
     title: "Kids Collection",
     category: "Department",
-    price: 89.99,
+    price: 49.99,
     image: "/editor/kid.jpg",
     description:
       "Colorful and fun outfits for kids. Let your children shine with vibrant designs tailored for both comfort and play.",
@@ -52,25 +52,25 @@ const products: Product[] = [
     id: 5,
     title: "Winter Collection",
     category: "Department",
-    price: 89.99,
+    price: 109.99,
     image: "/editor/img cozy.jpeg",
     description:
       "Stay warm with our winter collection. Crafted for those chilly days, this collection is a must-have for the season.",
   },
   {
     id: 6,
-    title: "Woman Dress",
+    title: "Luxury Clothing",
     category: "Department",
-    price: 99.99,
-    image: "/editor/img9.png",
-    description:
-      "Elegant and comfortable dresses for women. These dresses are designed to bring out your confidence and charm.",
+    price: 199.99,
+    image: "/hero/cloth.jpg",
+  description:
+    "Luxury clothing that combines elegance and comfort. Perfect for any occasion, these outfits are designed to make you stand out.",
   },
   {
     id: 7,
     title: "Girls Kurti",
     category: "Department",
-    price: 89.99,
+    price: 59.99,
     image: "/editor/img kurti.png",
     description:
       "Stylish kurtis for girls of all ages. A perfect blend of tradition and modernity to elevate your wardrobe.",
@@ -79,10 +79,45 @@ const products: Product[] = [
     id: 8,
     title: "Designer Dress",
     category: "Department",
-    price: 89.99,
+    price: 199.99,
     image: "/editor/img pur.jpeg",
     description:
       "Exclusive designer dresses for special events. Make a bold statement with these high-end outfits.",
+  },
+  {
+    id: 9,
+    title: "Casual Jacket",
+    category: "Department",
+    price: 89.99,
+    image: "/editor/img casual.jpg",
+    description:
+      "Stay stylish and warm with this casual jacket. Perfect for outdoor adventures or daily wear, this jacket combines fashion with functionality.",
+  },
+  {
+    id: 10,
+    title: "Woman Dress",
+    category: "Department",
+    price: 99.99,
+    image: "/editor/img9.png",
+    description:
+      "Elegant and comfortable dresses for women. These dresses are designed to bring out your confidence and charm.",
+  },
+  {
+    id: 11,
+    title: "Party Dress",
+    category: "Department",
+    price: 199.99,
+    image: "/editor/clo.jpg",
+    description: "Elegant party dress perfect for special occasions. Stand out with this stylish and chic outfit.",
+  },
+  {
+    id: 12,
+    title: "Shirt ",
+    category: "Department",
+    price: 139.99,
+    image: "/editor/img4.png",
+    description:
+      "Classic shirt for everyday wear. Comfortable and stylish, perfect for any occasion.",
   },
 ];
 
@@ -118,7 +153,7 @@ const CardSection: React.FC = () => {
 
               {/* Product Content */}
               <div className="flex flex-col p-6 flex-grow">
-                <h3 className="text-3xl font-semibold text-gray-800">{product.title}</h3>
+                <h3 className="text-lg font-semibold text-gray-800">{product.title}</h3>
                 <p className="text-sm text-gray-500 mt-1">{product.category}</p>
                 <p className="text-gray-600 text-sm mt-3">{product.description}</p>
 

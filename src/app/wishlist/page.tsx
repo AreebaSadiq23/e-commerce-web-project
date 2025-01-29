@@ -1,8 +1,8 @@
 "use client"
 
 import { useAppContext } from "../context/AppContext"
-import ProductCard from "@/components/productcard"
-import Header from "@/components/Header"
+import ProductCard from "../productscards/productcard"
+import Header from "@/components/header/Header"
 
 
 export default function Wishlist() {

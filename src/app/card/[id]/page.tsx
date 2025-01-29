@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Star, ShoppingCart, Heart } from 'lucide-react';
 import { useParams, useRouter } from 'next/navigation';
 import {useAppContext} from "../../context/AppContext";
-import Header from '@/components/Header';
+import Header from '@/components/header/Header';
 
 interface Product {
   id: number;
@@ -16,14 +16,18 @@ interface Product {
   description: string;
 }
 const products: Product[] = [
-  { id: 1, title: "Casual Jacket", name: "Casual Jacket", category: "Department", price: 89.99, image: "/editor/img casual.jpg", description: "Stay stylish and warm with this casual jacket. Perfect for outdoor adventures or daily wear." },
-  { id: 2, title: "Trendy Outfit", name: "Trendy Outfit", category: "Department", price: 89.99, image: "/editor/trendyoutfit.jpg", description: "Comfort meets style with this cozy hoodie." },
+  { id: 1, title: "Maxi Dress", name: "Maxi Dress", category: "Department", price: 199.99, image: "/hero/maxi.jpg", description:       "Exclusive Maxi dresses for special events. Make a bold statement with these high-end outfits.",  },
+  { id: 2, title: "Trendy Outfit", name: "Trendy Outfit", category: "Department", price: 79.99, image: "/editor/trendyoutfit.jpg", description: "Comfort meets style with this cozy hoodie." },
   { id: 3, title: "Men Fashion", name: "Men Fashion", category: "Department", price: 129.99, image: "/editor/men-fashion.jpg", description: "A trendy outfit perfect for any occasion." },
-  { id: 4, title: "Kids Collection", name: "Kids Collection", category: "Department", price: 89.99, image: "/editor/kid.jpg", description: "Colorful and fun outfits for kids." },
+  { id: 4, title: "Kids Collection", name: "Kids Collection", category: "Department", price: 49.99, image: "/editor/kid.jpg", description: "Colorful and fun outfits for kids." },
   { id: 5, title: "Winter Collection", name: "Winter Collection", category: "Department", price: 89.99, image: "/editor/img cozy.jpeg", description: "Stay warm with our winter collection." },
-  { id: 6, title: "Woman Dress", name: "Woman Dress", category: "Department", price: 99.99, image: "/editor/img9.png", description: "Elegant and comfortable dresses for women." },
-  { id: 7, title: "Girls Kurti", name: "Girls Kurti", category: "Department", price: 89.99, image: "/editor/img kurti.png", description: "Stylish kurtis for girls." },
-  { id: 8, title: "Designer Dress", name: "Designer Dress", category: "Department", price: 89.99, image: "/editor/img pur.jpeg", description: "Exclusive designer dresses for special events." },
+  { id: 6, title: "Luxury Clothing", name: "Luxury Clothing", category: "Department", price: 109.99, image: "/hero/cloth.jpg", description:     "Luxury clothing that combines elegance and comfort. Perfect for any occasion, these outfits are designed to make you stand out.",  },
+  { id: 7, title: "Girls Kurti", name: "Girls Kurti", category: "Department", price: 199.99, image: "/editor/img kurti.png", description: "Stylish kurtis for girls." },
+  { id: 8, title: "Designer Dress", name: "Designer Dress", category: "Department", price: 59.99, image: "/editor/img pur.jpeg", description: "Exclusive designer dresses for special events." },
+  { id: 9, title: "Casual Jacket", name: "Casual Jacket", category: "Department", price: 199.99, image: "/editor/img casual.jpg", description:"Stay stylish and warm with this casual jacket. Perfect for outdoor adventures or daily wear, this jacket combines fashion with functionality.",  },
+  { id: 10, title: "Woman Dress", name: "Woman Dress", category: "Department", price: 99.99, image: "/editor/img9.png", description: "Elegant and comfortable dresses for women." },
+  { id: 11, title: "Party Dress", name: "Party Dress", category: "Department", price: 199.99, image: "/editor/clo.jpg", description: "Elegant party dress perfect for special occasions. Stand out with this stylish and chic outfit." },
+  { id: 12, title: "Shirt", name: "Shirt", category: "Department", price: 139.99, image: "/editor/img4.png", description:"Classic shirt for everyday wear. Comfortable and stylish, perfect for any occasion.",  },
 ];
 
 export default function ProductDetail() {
