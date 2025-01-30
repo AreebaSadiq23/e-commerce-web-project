@@ -73,8 +73,8 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom Section */}
-      <div className="text-center text-md text-gray-600 mt-12">
-        <p>Made with Love by Finished. All rights reserved.</p>
+      <div className="text-center text-md text-cyan-800 mt-12 font-semibold">
+       <p>Made With Love By Areeba. All Rights Reserved</p>
       </div>
     </footer>
   );

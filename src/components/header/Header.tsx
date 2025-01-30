@@ -223,13 +223,13 @@ export default function Header() {
                   </button>
                 </div>
               ) : (
-                <Link href="/login" className="flex items-center text-blue-300">
+                <Link href="/login" className="flex items-center text-blue-400">
                   <FaUser className="mr-2" /> Login/Register
                 </Link>
               )}
             </li>
             <li>
-              <Link href="/cart" className="text-blue-300 flex items-center">
+              <Link href="/cart" className="text-blue-400 flex items-center">
                 <FaShoppingCart className="mr-1" />
                 {cartCount}
               </Link>
@@ -237,7 +237,7 @@ export default function Header() {
             <li>
               <Link
                 href="/wishlist"
-                className="text-blue-300 flex items-center"
+                className="text-blue-400 flex items-center"
               >
                 <Heart className="mr-1" />
                 {wishlistCount}
