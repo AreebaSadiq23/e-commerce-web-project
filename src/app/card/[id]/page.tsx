@@ -16,7 +16,7 @@ interface Product {
   description: string;
 }
 const products: Product[] = [
-  { id: 1, title: "Maxi Dress", name: "Maxi Dress", category: "Department", price: 199.99, image: "/hero/maxi.jpg", description:       "Exclusive Maxi dresses for special events. Make a bold statement with these high-end outfits.",  },
+  { id: 1, title: "Maxi Dress", name: "Maxi Dress", category: "Department", price: 199.99, image: "/hero/maxi.jpg", description:"Exclusive Maxi dresses for special events. Make a bold statement with these high-end outfits.",  },
   { id: 2, title: "Trendy Outfit", name: "Trendy Outfit", category: "Department", price: 79.99, image: "/editor/trendyoutfit.jpg", description: "Comfort meets style with this cozy hoodie." },
   { id: 3, title: "Men Fashion", name: "Men Fashion", category: "Department", price: 129.99, image: "/editor/men-fashion.jpg", description: "A trendy outfit perfect for any occasion." },
   { id: 4, title: "Kids Collection", name: "Kids Collection", category: "Department", price: 49.99, image: "/editor/kid.jpg", description: "Colorful and fun outfits for kids." },
@@ -53,8 +53,8 @@ export default function ProductDetail() {
 
   return (
     <><Header/>
-    <div className="flex flex-col md:flex-row mt-10">
-      <div className="md:w-1/2 mb-10 ml-24">
+    <div className="flex flex-col md:flex-row mt-10 mb-10 ml-10">
+      <div className="md:w-1/2 mb-10">
         <Image
           src={product.image || "/placeholder.svg"}
           alt={product.title}
