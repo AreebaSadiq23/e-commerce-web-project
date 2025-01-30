@@ -33,7 +33,6 @@ const ProductDetail: React.FC = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
   const { addToCart, addToWishlist } = useAppContext();
 
   useEffect(() => {

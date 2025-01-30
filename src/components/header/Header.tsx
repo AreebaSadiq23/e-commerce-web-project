@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useMemo, useState, useEffect } from "react";
 import Link from "next/link";
 import { FaUser, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
 import { Heart, LogOut } from "lucide-react";
@@ -17,7 +17,8 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const cartCount = cart?.length || 0;
 
-  const products = [
+  const products = useMemo(
+    () => [
     { id: 1, title: "Maxi Dress" },
     { id: 2, title: "Trendy Outfit" },
     { id: 3, title: "Men Fashion" },
@@ -30,7 +31,9 @@ export default function Header() {
     { id: 10, title: "Woman Dress" },
     { id: 11, title: "Party Dress" },
     { id: 12, title: "Shirt" },
-  ];
+  ],
+    []
+  );
 
   useEffect(() => {
     const filtered = products.filter((product) =>
