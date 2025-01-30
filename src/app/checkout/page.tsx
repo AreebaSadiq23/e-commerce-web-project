@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { useAppContext } from "../context/AppContext"
 import Header from "@/components/header/Header"
+import { FaUser, FaEnvelope, FaHome, FaCity, FaGlobe, FaMapPin } from "react-icons/fa";
 
 export default function Checkout() {
   const router = useRouter()
@@ -31,19 +32,11 @@ export default function Checkout() {
     e.preventDefault()
     setIsProcessing(true)
 
-    // Simulate API call to process the order
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000)) 
-
-      // Process the order
       console.log("Order placed:", { ...formData, cart })
-
-      // Clear the cart
       clearCart()
-
-      // Set order as complete
       setOrderComplete(true)
-
       setTimeout(() => {
         router.push("/order-confirmation")
       }, 2000)
@@ -59,131 +52,74 @@ export default function Checkout() {
 
   if (orderComplete) {
     return (
-      <div className="max-w-2xl mx-auto text-center">
-        <h1 className="text-3xl font-bold mb-4">Thank You for Your Order!</h1>
-        <p className="mb-4">Your order has been successfully placed. Redirecting to confirmation page...</p>
+      <div className="max-w-2xl mx-auto text-center py-16 bg-white shadow-lg rounded-xl mt-10 border border-gray-300 mb-10">
+        <h1 className="text-3xl font-bold mb-4 text-green-600">Thank You for Your Order!</h1>
+        <p className="mb-4 text-gray-700">Your order has been successfully placed. Redirecting to confirmation page...</p>
       </div>
     )
   }
 
+  const fieldIcons = {
+    name: <FaUser className="text-gray-500" />,
+    email: <FaEnvelope className="text-gray-500" />,
+    address: <FaHome className="text-gray-500" />,
+    city: <FaCity className="text-gray-500" />,
+    country: <FaGlobe className="text-gray-500" />,
+    zipCode: <FaMapPin className="text-gray-500" />
+  }
+
   return (
     <><Header/>
-    <div className="max-w-2xl mx-auto">
-      <h1 className="text-3xl font-bold mb-8 mt-10 text-center">Checkout Here!</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="name" className="block mb-1">
-            Full Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            required
-            className="w-full p-2 border border-gray-300 rounded"
-          />
-        </div>
-        <div>
-          <label htmlFor="email" className="block mb-1">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            required
-            className="w-full p-2 border border-gray-300 rounded"
-          />
-        </div>
-        <div>
-          <label htmlFor="address" className="block mb-1">
-            Address
-          </label>
-          <input
-            type="text"
-            id="address"
-            name="address"
-            value={formData.address}
-            onChange={handleInputChange}
-            required
-            className="w-full p-2 border border-gray-300 rounded"
-          />
-        </div>
-        <div>
-          <label htmlFor="city" className="block mb-1">
-            City
-          </label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            value={formData.city}
-            onChange={handleInputChange}
-            required
-            className="w-full p-2 border border-gray-300 rounded"
-          />
-        </div>
-        <div>
-          <label htmlFor="country" className="block mb-1">
-            Country
-          </label>
-          <input
-            type="text"
-            id="country"
-            name="country"
-            value={formData.country}
-            onChange={handleInputChange}
-            required
-            className="w-full p-2 border border-gray-300 rounded"
-          />
-        </div>
-        <div>
-          <label htmlFor="zipCode" className="block mb-1">
-            ZIP Code
-          </label>
-          <input
-            type="text"
-            id="zipCode"
-            name="zipCode"
-            value={formData.zipCode}
-            onChange={handleInputChange}
-            required
-            className="w-full p-2 border border-gray-300 rounded"
-          />
-        </div>
-        <div className="mt-8">
-          <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
-          {cart.map((item) => (
-            <div key={item.id} className="flex justify-between mb-2">
-              <span>
-                {item.name} x {item.quantity}
-              </span>
-              <span>${(item.price * item.quantity).toFixed(2)}</span>
-            </div>
-          ))}
-          <div className="border-t pt-2 mt-2">
-            <div className="flex justify-between font-bold">
-              <span>Total:</span>
-              <span>${total.toFixed(2)}</span>
+    <div className="max-w-2xl mx-auto p-8 bg-white shadow-lg rounded-xl mt-12 border border-gray-200 mb-10">
+      <h1 className="text-4xl font-bold mb-8 text-center text-purple-600">Checkout Here!</h1>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {(['name', 'email', 'address', 'city', 'country', 'zipCode'] as const).map((field) => (
+          <div key={field} className="space-y-2">
+            <label htmlFor={field} className="block font-medium text-gray-700 capitalize">
+              {field.replace(/([A-Z])/g, ' $1')}
+            </label>
+            <div className="flex items-center border border-gray-300 rounded-lg p-4 bg-gray-50 focus-within:ring-2 focus-within:ring-blue-300">
+              {fieldIcons[field as keyof typeof fieldIcons]}
+              <input
+                type={field === 'email' ? 'email' : 'text'}
+                id={field}
+                name={field}
+                value={formData[field]}
+                onChange={handleInputChange}
+                required
+                className="w-full pl-3 bg-transparent focus:outline-none text-lg"
+              />
             </div>
           </div>
+        ))}
+        
+        <div className="p-6 bg-gray-50 rounded-xl shadow-md border border-gray-200">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Order Summary</h2>
+          <div className="space-y-3">
+            {cart.map((item) => (
+              <div key={item.id} className="flex justify-between text-gray-700 text-lg">
+                <span>{item.name} x {item.quantity}</span>
+                <span className="font-semibold">${(item.price * item.quantity).toFixed(2)}</span>
+              </div>
+            ))}
+          </div>
+          <div className="border-t pt-4 mt-4 flex justify-between font-bold text-gray-900 text-xl">
+            <span>Total:</span>
+            <span>${total.toFixed(2)}</span>
+          </div>
         </div>
-        <div className="pb-10">
-        <button
-          type="submit"
-          className="w-44 bg-green-500 text-white py-2 rounded hover:bg-green-600 disabled:bg-gray-400"
-          disabled={isProcessing}
-        >
-          {isProcessing ? "Processing..." : "Place Order"}
-        </button>
+        
+        <div className="flex">
+          <button
+            type="submit"
+            className="w-60 bg-gradient-to-r from-indigo-500 to-purple-600  hover:from-purple-600 hover:to-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 py-4 rounded-lg text-white text-lg font-bold hover:shadow-xl"
+            disabled={isProcessing}
+          >
+            {isProcessing ? "Processing..." : "Place Order"}
+          </button>
         </div>
       </form>
     </div>
     </>
   )
 }
-
