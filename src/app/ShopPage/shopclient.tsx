@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState } from "react";
 import { FiList, FiGrid } from "react-icons/fi";
 import Image from "next/image";
@@ -74,8 +74,8 @@ const productsData: Product[] = [
     category: "Department",
     price: 199.99,
     image: "/hero/cloth.jpg",
-  description:
-    "Luxury clothing that combines elegance and comfort. Perfect for any occasion, these outfits are designed to make you stand out.",
+    description:
+      "Luxury clothing that combines elegance and comfort. Perfect for any occasion, these outfits are designed to make you stand out.",
   },
   {
     id: 7,
@@ -119,7 +119,8 @@ const productsData: Product[] = [
     category: "Department",
     price: 199.99,
     image: "/editor/clo.jpg",
-    description: "Elegant party dress perfect for special occasions. Stand out with this stylish and chic outfit.",
+    description:
+      "Elegant party dress perfect for special occasions. Stand out with this stylish and chic outfit.",
   },
   {
     id: 12,
@@ -147,7 +148,7 @@ const HomePage = () => {
     } else if (option === "Low to High") {
       sortedProducts.sort((a, b) => a.price - b.price);
     } else {
-      sortedProducts = productsData; 
+      sortedProducts = productsData;
     }
 
     setProducts(sortedProducts);

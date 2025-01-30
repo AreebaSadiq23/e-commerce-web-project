@@ -20,10 +20,13 @@ const CustomSection = () => {
         <div className="w-full md:w-1/2 text-center md:text-left">
           <h3 className="text-gray-500 text-xl md:text-2xl">SUMMER 2020</h3>
           <h1 className="font-bold text-4xl sm:text-5xl md:text-6xl mt-6 text-slate-800">
-            Part of the Neural<br />Universe
+            Part of the Neural
+            <br />
+            Universe
           </h1>
           <p className="text-xl text-gray-600 mt-10">
-            We know how large objects will act, <br /> but things on a small scale.
+            We know how large objects will act, <br /> but things on a small
+            scale.
           </p>
           <div className="mt-8 space-x-4 flex flex-col sm:flex-row justify-center md:justify-start">
             {/* Buttons */}

@@ -53,7 +53,10 @@ export default function Login() {
                 <label htmlFor="email-address" className="sr-only">
                   Email address
                 </label>
-                <Mail className="absolute top-3 left-3 text-gray-400" size={20} />
+                <Mail
+                  className="absolute top-3 left-3 text-gray-400"
+                  size={20}
+                />
                 <input
                   id="email-address"
                   name="email"
@@ -71,7 +74,10 @@ export default function Login() {
                 <label htmlFor="password" className="sr-only">
                   Password
                 </label>
-                <Lock className="absolute top-3 left-3 text-gray-400" size={20} />
+                <Lock
+                  className="absolute top-3 left-3 text-gray-400"
+                  size={20}
+                />
                 <input
                   id="password"
                   name="password"

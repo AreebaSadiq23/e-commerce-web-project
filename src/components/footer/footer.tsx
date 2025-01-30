@@ -1,5 +1,5 @@
-import React from 'react';
-import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
+import React from "react";
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -72,7 +72,6 @@ const Footer = () => {
         </div>
       </div>
 
-    
       {/* Footer Bottom Section */}
       <div className="text-center text-md text-gray-600 mt-12">
         <p>Made with Love by Finished. All rights reserved.</p>

@@ -6,7 +6,7 @@ import Navbar from "../navbar";
 const AboutSection = () => {
   return (
     <>
-    <Navbar/>
+      <Navbar />
       {/* About Company Section */}
       <div className="relative flex flex-wrap items-center justify-between px-4 lg:px-32 py-10">
         <div className="w-full lg:w-1/2 space-y-6">

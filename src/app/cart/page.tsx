@@ -20,7 +20,9 @@ export default function Cart() {
     <>
       <Header />
       <div className="min-h-screen px-4 py-8 bg-gray-50">
-        <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center">Shopping Cart</h1>
+        <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center">
+          Shopping Cart
+        </h1>
         {cart.length === 0 ? (
           <p className="text-center text-lg">Your cart is empty.</p>
         ) : (
@@ -40,7 +42,9 @@ export default function Cart() {
                   />
                   <div className="text-center md:text-left">
                     <h2 className="text-lg font-semibold">{item.name}</h2>
-                    <p className="text-gray-600 mt-2">${item.price.toFixed(2)}</p>
+                    <p className="text-gray-600 mt-2">
+                      ${item.price.toFixed(2)}
+                    </p>
                     <p className="text-gray-400 line-through">$129.99</p>
                   </div>
                 </div>
@@ -50,7 +54,10 @@ export default function Cart() {
                     min="1"
                     value={item.quantity}
                     onChange={(e) =>
-                      updateCartItemQuantity(item.id, Number.parseInt(e.target.value))
+                      updateCartItemQuantity(
+                        item.id,
+                        Number.parseInt(e.target.value)
+                      )
                     }
                     className="w-16 p-2 border border-gray-300 rounded"
                   />

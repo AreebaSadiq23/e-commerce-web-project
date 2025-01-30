@@ -1,5 +1,12 @@
 import React from "react";
-import { FaPhoneAlt, FaEnvelope, FaInstagram, FaYoutube, FaFacebook, FaTwitter } from "react-icons/fa";
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaInstagram,
+  FaYoutube,
+  FaFacebook,
+  FaTwitter,
+} from "react-icons/fa";
 
 const PromoBanner = () => {
   return (
@@ -27,7 +34,7 @@ const PromoBanner = () => {
 
       {/* Right Section */}
       <div className="flex items-center space-x-4 mt-2 md:mt-0">
-        <span className="text-sm font-semibold">Follow Us  :</span>
+        <span className="text-sm font-semibold">Follow Us :</span>
         <FaInstagram className="text-white cursor-pointer" />
         <FaYoutube className="text-white cursor-pointer" />
         <FaFacebook className="text-white cursor-pointer" />

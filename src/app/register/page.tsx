@@ -38,7 +38,7 @@ export default function Register() {
         setError("Registration failed. Please try again.");
       }
     } catch (err) {
-      console.error(err); // Log the error for debugging
+      console.error(err);
       setError("An error occurred. Please try again.");
     } finally {
       setIsLoading(false);
@@ -48,12 +48,12 @@ export default function Register() {
   return (
     <>
       <Header />
-      <div
-        className="min-h-screen flex items-center justify-center bg-gray-200 py-12 px-4 sm:px-6 lg:px-8"
-      >
+      <div className="min-h-screen flex items-center justify-center bg-gray-200 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full bg-white rounded-lg shadow-md p-8 space-y-8">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900">Create Your Account</h2>
+            <h2 className="text-3xl font-extrabold text-gray-900">
+              Create Your Account
+            </h2>
             <p className="mt-2 text-sm text-gray-600">
               Start your journey today!
             </p>
@@ -64,7 +64,10 @@ export default function Register() {
                 <label htmlFor="name" className="sr-only">
                   Name
                 </label>
-                <User className="absolute top-3 left-3 text-gray-400" size={20} />
+                <User
+                  className="absolute top-3 left-3 text-gray-400"
+                  size={20}
+                />
                 <input
                   id="name"
                   name="name"
@@ -80,7 +83,10 @@ export default function Register() {
                 <label htmlFor="email" className="sr-only">
                   Email Address
                 </label>
-                <Mail className="absolute top-3 left-3 text-gray-400" size={20} />
+                <Mail
+                  className="absolute top-3 left-3 text-gray-400"
+                  size={20}
+                />
                 <input
                   id="email"
                   name="email"
@@ -96,7 +102,10 @@ export default function Register() {
                 <label htmlFor="password" className="sr-only">
                   Password
                 </label>
-                <Lock className="absolute top-3 left-3 text-gray-400" size={20} />
+                <Lock
+                  className="absolute top-3 left-3 text-gray-400"
+                  size={20}
+                />
                 <input
                   id="password"
                   name="password"
@@ -123,7 +132,10 @@ export default function Register() {
                 <label htmlFor="confirm-password" className="sr-only">
                   Confirm Password
                 </label>
-                <Lock className="absolute top-3 left-3 text-gray-400" size={20} />
+                <Lock
+                  className="absolute top-3 left-3 text-gray-400"
+                  size={20}
+                />
                 <input
                   id="confirm-password"
                   name="confirm-password"

@@ -82,7 +82,9 @@ const ContactSection: React.FC = () => {
               <p className="text-lg text-gray-600 mb-4 font-bold">
                 georgia.young@ple.com
               </p>
-              <p className="text-lg text-gray-800 mb-5 font-bold">Get Support</p>
+              <p className="text-lg text-gray-800 mb-5 font-bold">
+                Get Support
+              </p>
               <button className="px-11 py-3 rounded-full border border-blue-300 text-blue-500">
                 Submit Request
               </button>
@@ -93,9 +95,7 @@ const ContactSection: React.FC = () => {
               <p className="text-lg text-white mb-2 mt-5">
                 georgia.young@example.com
               </p>
-              <p className="text-lg text-white mb-4">
-                georgia.young@ple.com
-              </p>
+              <p className="text-lg text-white mb-4">georgia.young@ple.com</p>
               <p className="text-lg text-white mb-5 font-bold">Get Support</p>
               <button className="px-11 py-3 rounded-full border border-blue-300 text-blue-500 mt-3">
                 Submit Request
@@ -110,7 +110,9 @@ const ContactSection: React.FC = () => {
               <p className="text-lg text-gray-700 mb-4 font-bold">
                 georgia.young@ple.com
               </p>
-              <p className="text-lg text-gray-800 mb-5 font-bold">Get Support</p>
+              <p className="text-lg text-gray-800 mb-5 font-bold">
+                Get Support
+              </p>
               <button className="px-11 py-3 rounded-full border border-blue-300 text-blue-500">
                 Submit Request
               </button>
@@ -120,21 +122,21 @@ const ContactSection: React.FC = () => {
 
         {/* Final Call-to-Action */}
         <div className="mt-10 py-10 text-center">
-        {/* Arrow Icon */}
-        <div className="flex justify-center items-center">
-          <GiWideArrowDunk className="text-[#23A6F0] text-[80px]" />
-        </div>
-        <div className="text-center my-16 mt-7">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">
-            We can&apos;t wait to meet you
-          </h2>
-          <h3 className="text-6xl font-bold text-gray-900 mb-4">
-            Let&apos;s Talk
-          </h3>
-          <button className="px-11 py-3 text-lg bg-blue-500 text-white hover:bg-blue-400 mt-5">
-            Try It Free Now
-          </button>
-        </div>
+          {/* Arrow Icon */}
+          <div className="flex justify-center items-center">
+            <GiWideArrowDunk className="text-[#23A6F0] text-[80px]" />
+          </div>
+          <div className="text-center my-16 mt-7">
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+              We can&apos;t wait to meet you
+            </h2>
+            <h3 className="text-6xl font-bold text-gray-900 mb-4">
+              Let&apos;s Talk
+            </h3>
+            <button className="px-11 py-3 text-lg bg-blue-500 text-white hover:bg-blue-400 mt-5">
+              Try It Free Now
+            </button>
+          </div>
         </div>
       </section>
     </>
