@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import sanityClient from "@sanity/client";
 import Image from "next/image";
 import Navbar from "../navbar";
@@ -24,6 +25,7 @@ interface Product {
 const ProductCards: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const fetchProducts = async () => {
     setLoading(true);
@@ -47,12 +49,6 @@ const ProductCards: React.FC = () => {
     }
   };
 
-  const truncateDescription = (description: string) => {
-    return description.length > 100
-      ? description.substring(0, 100) + "..."
-      : description;
-  };
-
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -71,7 +67,8 @@ const ProductCards: React.FC = () => {
             {products.map((product) => (
               <div
                 key={product._id}
-                className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition-shadow duration-300"
+                className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+                onClick={() => router.push(`/productcard/${product._id}`)}
               >
                 <Image
                   src={product.imageUrl || "/default-image.jpg"}
@@ -82,34 +79,6 @@ const ProductCards: React.FC = () => {
                 />
                 <div className="mt-4">
                   <h2 className="text-lg font-semibold">{product.title}</h2>
-                  <p className="text-slate-500 mt-3 text-sm">
-                    {truncateDescription(product.description)}
-                  </p>
-                  <div className="flex justify-between items-center mt-4">
-                    <div>
-                      <p className="text-slate-800 font-bold">
-                        $
-                        {product.price.toLocaleString("en-US", {
-                          minimumFractionDigits: 2,
-                        })}
-                      </p>
-                      {product.discountPercentage > 0 && (
-                        <p className="text-sm text-green-700">
-                          {product.discountPercentage}% OFF
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {product.tags.map((tag, index) => (
-                      <span
-                        key={index}
-                        className="text-xs bg-slate-200 text-black rounded-full px-2 py-1"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                 </div>
               </div>
             ))}

@@ -32,7 +32,7 @@ const HeroSection = () => {
             </p>
             {/* Shop Now Button */}
             <a
-              href="/ShopPage"
+              href="/products"
               className="inline-block mt-6 px-10 py-4 text-amber-200 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-md hover:from-purple-500 hover:to-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-lg font-semibold"
             >
               Shop Now
