@@ -124,7 +124,7 @@ const productsData: Product[] = [
   },
   {
     id: 12,
-    title: "Shirt ",
+    title: "Shirt",
     category: "Department",
     price: 139.99,
     image: "/editor/img4.png",
@@ -136,8 +136,9 @@ const productsData: Product[] = [
 const HomePage = () => {
   const [products, setProducts] = useState<Product[]>(productsData);
   const [sortOption, setSortOption] = useState<string>("Popularity");
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const productsPerPage = 8;
 
-  // Function to handle sorting
   const handleSort = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const option = e.target.value;
     setSortOption(option);
@@ -154,11 +155,18 @@ const HomePage = () => {
     setProducts(sortedProducts);
   };
 
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = products.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
   return (
     <>
       <Header />
-      <div className="container mx-auto px-4 mb-10 ">
-        {/* 5 Images Layout */}
+      <div className="container mx-auto px-4 mb-10">
+        {/* Image Layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 justify-center mt-10">
           {images.map((img, index) => (
             <div key={index} className="relative group">
@@ -171,20 +179,17 @@ const HomePage = () => {
               />
               <div className="absolute text-center top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 text-white p-4">
                 <h3 className="text-xl font-bold mt-20">Trending Apparel</h3>
-                <p className="text-md">Explore 5 Stylish Products</p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Filter and Popularity Options Below Cards */}
+        {/* Filter and Sorting Options */}
         <div className="flex flex-col sm:flex-row justify-between items-center mt-10">
-          {/* Showing Results on the Left */}
           <div className="text-md text-gray-500 font-bold mt-7">
             Showing all {products.length} results
           </div>
 
-          {/* Menu Icon and Filter Icon Centered */}
           <div className="flex items-center space-x-4 mt-7">
             <h2 className="text-gray-600 font-bold">Views:</h2>
             <button className="bg-gray-200 p-2 flex items-center space-x-2">
@@ -195,7 +200,6 @@ const HomePage = () => {
             </button>
           </div>
 
-          {/* Popularity and Sorting on the Right */}
           <select
             className="bg-gray-200 p-2 rounded mt-7"
             value={sortOption}
@@ -209,10 +213,9 @@ const HomePage = () => {
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
-          {products.map((product) => (
+          {currentProducts.map((product) => (
             <Link key={product.id} href={`/card/${product.id}`}>
               <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transform transition-transform hover:scale-105 flex flex-col cursor-pointer">
-                {/* Product Image */}
                 <div className="relative w-full h-72">
                   <Image
                     src={product.image}
@@ -223,7 +226,6 @@ const HomePage = () => {
                   />
                 </div>
 
-                {/* Product Content */}
                 <div className="flex flex-col p-6 flex-grow">
                   <h3 className="text-lg font-semibold text-gray-800">
                     {product.title}
@@ -235,7 +237,6 @@ const HomePage = () => {
                     {product.description}
                   </p>
 
-                  {/* Price Section */}
                   <div className="flex items-center justify-between mt-4">
                     <span className="text-lg font-bold text-blue-600">
                       ${product.price}
@@ -249,9 +250,32 @@ const HomePage = () => {
             </Link>
           ))}
         </div>
+
+        {/* Pagination */}
+        <div className="flex justify-center items-center mt-16">
+          <button className="px-4 py-2 text-slate-500 text-sm sm:px-8 sm:py-6 border-2 border-blue-400">
+            Prev
+          </button>
+
+          <div className="flex justify-center">
+            {[1, 2, 3].map((number) => (
+              <button
+                key={number}
+                className={`px-4 py-2 font-bold text-gray-400 text-sm sm:px-8 sm:py-6 border-2 border-blue-400 ${number === 2 ? "bg-blue-400 text-white" : "bg-transparent"}`}
+              >
+                {number}
+              </button>
+            ))}
+          </div>
+
+          <a href="/page2">
+            <button className="px-4 py-2 text-gray-500 text-sm sm:px-8 sm:py-6 border-2 border-blue-400">
+              Next
+            </button>
+          </a>
+        </div>
       </div>
     </>
   );
 };
-
 export default HomePage;

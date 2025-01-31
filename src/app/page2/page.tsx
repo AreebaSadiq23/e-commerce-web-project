@@ -22,7 +22,6 @@ const ProductSection = () => {
     );
   };
 
-  // Function to handle next image
   const handleNext = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
