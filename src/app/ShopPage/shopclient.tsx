@@ -136,7 +136,7 @@ const productsData: Product[] = [
 const HomePage = () => {
   const [products, setProducts] = useState<Product[]>(productsData);
   const [sortOption, setSortOption] = useState<string>("Popularity");
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentPage] = useState<number>(1);
   const productsPerPage = 8;
 
   const handleSort = (e: React.ChangeEvent<HTMLSelectElement>) => {
