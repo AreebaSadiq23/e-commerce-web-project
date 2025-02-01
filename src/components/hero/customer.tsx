@@ -1,50 +1,53 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import AOS from "aos";
+import "aos/dist/aos.css";
 
 const CustomSection = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000 }); 
+    AOS.init({ duration: 1000 });
   }, []);
 
   return (
-    <div className="py-20 px-4 bg-gray-100 max-w-screen-2xl mx-auto">
-      <div className="flex flex-col md:flex-row items-center justify-between">
+    <div className="py-16 px-4 bg-gray-100 max-w-screen-2xl mx-auto">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Left Section: Image */}
         <div
-          className="w-full md:w-1/2 mb-10 md:mb-0 md:ml-24"
-          data-aos="fade-right" // Animation for the left section (Image)
+          className="w-full md:w-1/2 flex justify-center"
+          data-aos="fade-right"
         >
           <Image
             src="/editor/img 5.png"
             alt="img"
-            width={600}
-            height={400}
-            className="object-cover w-full h-auto"
+            width={500}
+            height={350}
+            className="object-cover w-full max-w-sm md:max-w-md"
           />
         </div>
 
         {/* Right Section: Text */}
         <div
-          className="w-full md:w-1/2 text-center md:text-left"
-          data-aos="fade-left" // Animation for the right section (Text)
+          className="w-full md:w-1/2 text-center md:text-left px-4"
+          data-aos="fade-left"
         >
-          <h3 className="text-gray-500 text-xl md:text-2xl">SUMMER 2020</h3>
-          <h1 className="font-bold text-4xl sm:text-5xl md:text-6xl mt-6 text-slate-800">
+          <h3 className="text-gray-500 text-lg sm:text-xl md:text-2xl">
+            SUMMER 2020
+          </h3>
+          <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl mt-4 text-slate-800">
             Part of the Neural
             <br />
             Universe
           </h1>
-          <p className="text-xl text-gray-600 mt-10">
+          <p className="text-base sm:text-lg text-gray-600 mt-6">
             We know how large objects will act, <br /> but things on a small
             scale.
           </p>
-          <div className="mt-8 space-x-4 flex flex-col sm:flex-row justify-center md:justify-start">
+          <div className="mt-8 space-y-4 sm:space-y-0 sm:space-x-4 flex flex-col sm:flex-row justify-center md:justify-start">
             {/* Buttons */}
-            <button className="bg-green-600 text-white py-2 px-4 w-full sm:w-[200px] rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 mb-4 sm:mb-0">
+            <button className="bg-green-600 text-white py-3 px-6 w-full sm:w-[200px] rounded-lg hover:bg-green-700 transition-all">
               Buy Now
             </button>
-            <button className="bg-transparent border-2 border-green-600 text-green-600 py-2 px-4 w-full sm:w-[200px] rounded hover:bg-green-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500">
+            <button className="bg-transparent border-2 border-green-600 text-green-600 py-3 px-6 w-full sm:w-[200px] rounded-lg hover:bg-green-600 hover:text-white transition-all">
               Read More
             </button>
           </div>

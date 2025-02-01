@@ -17,12 +17,12 @@ const ContactSection: React.FC = () => {
       <Navbar />
       <section className="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8">
         {/* Left Side Content */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 ml-16">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-12 sm:ml-0 md:ml-16">
           <div className="text-left" data-aos="fade-right">
             <h3 className="text-xl font-semibold text-gray-700 mb-2 mt-10">
               Contact Us
             </h3>
-            <h2 className="text-7xl font-extrabold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-7xl font-extrabold text-gray-900 mb-4">
               Get in touch <br /> today!
             </h2>
             <p className="text-lg text-gray-600 mb-4">
@@ -66,15 +66,15 @@ const ContactSection: React.FC = () => {
         {/* Visit Our Office */}
         <div className="text-center my-16">
           <h2 className="text-xl text-gray-900 mb-6">Visit Our Office</h2>
-          <h3 className="text-4xl font-bold text-gray-800 mb-10">
+          <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-800 mb-10">
             We help small businesses <br />
             with big ideas
           </h3>
 
           {/* Contact Cards */}
-          <div className="flex flex-col md:flex-row justify-center items-center">
+          <div className="flex flex-col sm:flex-col md:flex-row justify-center items-center">
             <div
-              className="p-4 shadow-lg text-center flex flex-col items-center h-[400px] w-[300] border border-blue-300"
+              className="p-4 shadow-lg text-center flex flex-col items-center h-[400px] w-[300px] border border-blue-300"
               data-aos="zoom-in"
             >
               <FaPhoneAlt className="text-7xl text-blue-400 mb-4 mt-7" />
@@ -93,7 +93,7 @@ const ContactSection: React.FC = () => {
             </div>
 
             <div
-              className="bg-gray-800 p-6 shadow-lg text-center flex flex-col items-center h-[450px] w-[300]"
+              className="bg-gray-800 p-6 shadow-lg text-center flex flex-col items-center h-[450px] w-[300px]"
               data-aos="zoom-in"
             >
               <FaMapMarkerAlt className="text-8xl text-blue-400 mb-4 mt-7" />
@@ -108,7 +108,7 @@ const ContactSection: React.FC = () => {
             </div>
 
             <div
-              className="p-6 shadow-lg text-center flex flex-col items-center h-[400px] w-[300] border border-blue-300"
+              className="p-6 shadow-lg text-center flex flex-col items-center h-[400px] w-[300px] border border-blue-300"
               data-aos="zoom-in"
             >
               <FaEnvelope className="text-8xl text-blue-400 mb-4 mt-7" />
@@ -136,10 +136,10 @@ const ContactSection: React.FC = () => {
           </div>
           <div className="text-center my-16 mt-7" data-aos="fade-up">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">
-              We can&apos;t wait to meet you
+              We can't wait to meet you
             </h2>
-            <h3 className="text-6xl font-bold text-gray-900 mb-4">
-              Let&apos;s Talk
+            <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 mb-4">
+              Let's Talk
             </h3>
             <button className="px-11 py-3 text-lg bg-blue-500 text-white hover:bg-blue-400 mt-5">
               Try It Free Now
@@ -152,4 +152,3 @@ const ContactSection: React.FC = () => {
 };
 
 export default ContactSection;
-

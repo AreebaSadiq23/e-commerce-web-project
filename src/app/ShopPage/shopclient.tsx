@@ -191,6 +191,7 @@ const HomePage = () => {
               />
               <div className="absolute text-center top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 text-white p-4">
                 <h3 className="text-xl font-bold mt-20">Trending Apparel</h3>
+                <p>Explore 5 stylish Products</p>
               </div>
             </div>
           ))}
@@ -242,21 +243,21 @@ const HomePage = () => {
                 </div>
 
                 <div className="flex flex-col p-6 flex-grow">
-                  <h3 className="text-lg font-semibold text-gray-800">
+                  <h3 className="text-lg font-semibold text-gray-800" data-aos="fade-up" data-aos-delay="300">
                     {product.title}
                   </h3>
-                  <p className="text-sm text-gray-500 mt-1">
+                  <p className="text-sm text-gray-500 mt-1" data-aos="fade-up" data-aos-delay="400">
                     {product.category}
                   </p>
-                  <p className="text-gray-600 text-sm mt-3">
+                  <p className="text-gray-600 text-sm mt-3" data-aos="fade-up"data-aos-delay="500">
                     {product.description}
                   </p>
 
                   <div className="flex items-center justify-between mt-4">
-                    <span className="text-lg font-bold text-blue-600">
+                    <span className="text-lg font-bold text-blue-600" data-aos="fade-up"data-aos-delay="600">
                       ${product.price}
                     </span>
-                    <span className="text-sm text-gray-400 line-through">
+                    <span className="text-sm text-gray-400 line-through" data-aos="fade-up"data-aos-delay="700">
                       $129.99
                     </span>
                   </div>

@@ -49,7 +49,6 @@ const PricingSection: React.FC = () => {
             <button className="bg-cyan-200 px-4 py-1 text-xs text-cyan-500 font-bold rounded-full">
               Save 25%
             </button>
-          </div>
         </div>
 
         {/* Pricing Cards */}
@@ -235,100 +234,103 @@ const PricingSection: React.FC = () => {
 
         {/* FAQ Section */}
         <div className="mt-28" data-aos="fade-right">
-          <h3 className="text-center text-4xl font-bold text-black">
-            Pricing FAQs
-          </h3>
-          <p className="text-center text-gray-500 mt-4 text-md">
-            Problems trying to resolve the conflict between <br />
-            the two major realms of Classical physics.
-          </p>
+  <h3 className="text-center text-4xl font-bold text-black">
+    Pricing FAQs
+  </h3>
+  <p className="text-center text-gray-500 mt-4 text-md">
+    Problems trying to resolve the conflict between <br />
+    the two major realms of Classical physics.
+  </p>
 
-          {/* Text layout with left and right sides */}
-          <div className="flex justify-between mt-10" data-aos="fade-up"> 
-            {/* Left side with 3 repetitions */}
-            <div className="w-full sm:w-1/2 lg:w-1/2 text-left ml-20 mb-10 sm:mb-0">
-              <h2 className="text-lg font-semibold mb-3 text-gray-800">
-                <span className="text-blue-500 font-semibold text-3xl">
-                  &gt;{" "}
-                </span>
-                The quick fox jumps over the lazy dog.
-              </h2>
-              <p className="text-gray-600 mb-6">
-                Met minim Mollie non desert Alamo est sit cliquey. <br />
-                Dolor do met sent. RELIT official consequent door ENIM. <br />
-                RELIT Mollie. Excitation venial consequent sent
-                <br /> nostrum met.
-              </p>
+  {/* Text layout with left and right sides */}
+  <div className="flex flex-col sm:flex-row justify-between mt-10" data-aos="fade-up">
+    {/* Left side with 3 repetitions */}
+    <div className="w-full sm:w-1/2 lg:w-1/2 text-left sm:ml-10 mb-10 sm:mb-0">
+      <h2 className="text-lg font-semibold mb-3 text-gray-800">
+        <span className="text-blue-500 font-semibold text-3xl">
+          &gt;{" "}
+        </span>
+        The quick fox jumps over the lazy dog.
+      </h2>
+      <p className="text-gray-600 mb-6">
+        Met minim Mollie non desert Alamo est sit cliquey. <br />
+        Dolor do met sent. RELIT official consequent door ENIM. <br />
+        RELIT Mollie. Excitation venial consequent sent
+        <br /> nostrum met.
+      </p>
 
-              <h2 className="text-lg font-semibold mb-3 text-gray-800">
-                <span className="text-blue-500 font-semibold text-2xl">
-                  &gt;{" "}
-                </span>{" "}
-                The quick fox jumps over the lazy dog.
-              </h2>
-              <p className="text-gray-600 mb-6">
-                Met minim Mollie non desert Alamo est sit cliquey. <br />
-                Dolor do met sent. RELIT official consequent door ENIM. <br />
-                RELIT Mollie. Excitation venial consequent sent
-                <br /> nostrum met.
-              </p>
+      <h2 className="text-lg font-semibold mb-3 text-gray-800">
+        <span className="text-blue-500 font-semibold text-2xl">
+          &gt;{" "}
+        </span>{" "}
+        The quick fox jumps over the lazy dog.
+      </h2>
+      <p className="text-gray-600 mb-6">
+        Met minim Mollie non desert Alamo est sit cliquey. <br />
+        Dolor do met sent. RELIT official consequent door ENIM. <br />
+        RELIT Mollie. Excitation venial consequent sent
+        <br /> nostrum met.
+      </p>
 
-              <h2 className="text-lg font-semibold mb-3 text-gray-800">
-                <span className="text-blue-500 font-semibold text-2xl">
-                  &gt;{" "}
-                </span>{" "}
-                The quick fox jumps over the lazy dog.
-              </h2>
-              <p className="text-gray-600">
-                Met minim Mollie non desert Alamo est sit cliquey. <br />
-                Dolor do met sent. RELIT official consequent door ENIM. <br />
-                RELIT Mollie. Excitation venial consequent sent
-                <br /> nostrum met.
-              </p>
-            </div>
+      <h2 className="text-lg font-semibold mb-3 text-gray-800">
+        <span className="text-blue-500 font-semibold text-2xl">
+          &gt;{" "}
+        </span>{" "}
+        The quick fox jumps over the lazy dog.
+      </h2>
+      <p className="text-gray-600">
+        Met minim Mollie non desert Alamo est sit cliquey. <br />
+        Dolor do met sent. RELIT official consequent door ENIM. <br />
+        RELIT Mollie. Excitation venial consequent sent
+        <br /> nostrum met.
+      </p>
+    </div>
 
-            {/* Right side with 3 repetitions */}
-            <div className="w-full sm:w-1/2 lg:w-1/2 text-left ml-20 mb-10 sm:mb-0" data-aos="fade-up">
-              <h2 className="text-lg font-semibold mb-3 text-gray-800">
-                <span className="text-blue-500 font-semibold text-2xl">
-                  &gt;{" "}
-                </span>
-                The quick fox jumps over the lazy dog.
-              </h2>
-              <p className="text-gray-600 mb-6 text-md mt-5">
-                Met minim Mollie non desert Alamo est sit cliquey <br />
-                Dolor do met sent. RELIT official consequent door <br />{" "}
-                Mollie.Excitation venial .veniel sent sit nostrum met.
-              </p>
+    {/* Right side with 3 repetitions */}
+    <div className="w-full sm:w-1/2 lg:w-1/3 text-left sm:ml-10 mb-10 sm:mb-0" data-aos="fade-up">
+      <h2 className="text-lg font-semibold mb-3 text-gray-800">
+        <span className="text-blue-500 font-semibold text-2xl">
+          &gt;{" "}
+        </span>
+        The quick fox jumps over the lazy dog.
+      </h2>
+      <p className="text-gray-600 mb-6 text-md mt-5">
+        Met minim Mollie non desert Alamo est sit cliquey <br />
+        Dolor do met sent. RELIT official consequent door <br />
+        Mollie.Excitation venial .veniel sent sit nostrum met.
+      </p>
 
-              <h2 className="text-lg font-semibold mb-3 text-gray-800">
-                <span className="text-blue-500 font-semibold text-2xl">
-                  &gt;{" "}
-                </span>{" "}
-                The quick fox jumps over the lazy dog.
-              </h2>
-              <p className="text-gray-600 mb-6 mt-5">
-                Met minim Mollie non desert Alamo est sit cliquey <br />
-                Dolor do met sent. RELIT official consequent door <br />{" "}
-                Mollie.Excitation venial .veniel sent sit nostrum met.
-              </p>
+      <h2 className="text-lg font-semibold mb-3 text-gray-800">
+        <span className="text-blue-500 font-semibold text-2xl">
+          &gt;{" "}
+        </span>{" "}
+        The quick fox jumps over the lazy dog.
+      </h2>
+      <p className="text-gray-600 mb-6 mt-5">
+        Met minim Mollie non desert Alamo est sit cliquey <br />
+        Dolor do met sent. RELIT official consequent door <br />
+        Mollie.Excitation venial .veniel sent sit nostrum met.
+      </p>
 
-              <h2 className="text-lg font-semibold mb-3 text-gray-800">
-                <span className="text-blue-500 font-semibold text-2xl">
-                  &gt;{" "}
-                </span>{" "}
-                The quick fox jumps over the lazy dog.
-              </h2>
-              <p className="text-gray-600 mt-5">
-                Met minim Mollie non desert Alamo est sit cliquey <br />
-                Dolor do met sent. RELIT official consequent door <br />{" "}
-                Mollie.Excitation venial .veniel sent sit nostrum met.
-              </p>
-            </div>
-          </div>
-          <p className="text-center mt-10 font-semibold text-lg text-gray-500">
-            Have not got your answer? Contact our support
-          </p>
+      <h2 className="text-lg font-semibold mb-3 text-gray-800">
+        <span className="text-blue-500 font-semibold text-2xl">
+          &gt;{" "}
+        </span>{" "}
+        The quick fox jumps over the lazy dog.
+      </h2>
+      <p className="text-gray-600 mt-5">
+        Met minim Mollie non desert Alamo est sit cliquey <br />
+        Dolor do met sent. RELIT official consequent door <br />
+        Mollie.Excitation venial .veniel sent sit nostrum met.
+      </p>
+    </div>
+  </div>
+
+  <p className="text-center mt-10 font-semibold text-lg text-gray-500">
+    Have not got your answer? Contact our support
+  </p>
+</div>
+
 
           {/* Free Trial */}
           <div className="text-center mt-32" data-aos="fade-up">

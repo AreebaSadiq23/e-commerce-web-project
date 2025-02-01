@@ -30,17 +30,17 @@ const products: Product[] = [
 
 export default function ProductSearch() {
   useEffect(() => {
-    AOS.init(); // Initialize AOS
+    AOS.init(); 
   }, []);
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {products.map((product) => (
           <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up">
             <Link href={`/card/${product.id}`}>
               <div className="hover:scale-105 transform transition-transform cursor-pointer">
-                <div className="relative w-full h-72" data-aos="zoom-in" data-aos-delay="100">
+                <div className="relative w-full h-56 sm:h-72" data-aos="zoom-in" data-aos-delay="100">
                   <Image
                     src={product.image || "/placeholder.svg"}
                     alt={product.title}
@@ -49,13 +49,23 @@ export default function ProductSearch() {
                     className="rounded-t-lg"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-gray-800" data-aos="fade-up" data-aos-delay="300">{product.title}</h3>
-                  <p className="text-sm text-gray-500 mt-1" data-aos="fade-up" data-aos-delay="400">{product.category}</p>
-                  <p className="text-gray-600 text-sm mt-3" data-aos="fade-up" data-aos-delay="500">{product.description}</p>
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-800" data-aos="fade-up" data-aos-delay="300">
+                    {product.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-500 mt-1" data-aos="fade-up" data-aos-delay="400">
+                    {product.category}
+                  </p>
+                  <p className="text-gray-600 text-xs sm:text-sm mt-3" data-aos="fade-up" data-aos-delay="500">
+                    {product.description}
+                  </p>
                   <div className="flex items-center justify-between mt-4">
-                    <span className="text-lg font-bold text-blue-600" data-aos="fade-up" data-aos-delay="600">${product.price.toFixed(2)}</span>
-                    <span className="text-sm text-gray-400 line-through" data-aos="fade-up" data-aos-delay="700">$129.99</span>
+                    <span className="text-sm sm:text-lg font-bold text-blue-600" data-aos="fade-up" data-aos-delay="600">
+                      ${product.price.toFixed(2)}
+                    </span>
+                    <span className="text-xs sm:text-sm text-gray-400 line-through" data-aos="fade-up" data-aos-delay="700">
+                      $129.99
+                    </span>
                   </div>
                 </div>
               </div>
