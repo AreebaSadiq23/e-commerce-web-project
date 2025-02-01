@@ -132,14 +132,14 @@ const ContactSection: React.FC = () => {
         <div className="mt-10 py-10 text-center">
           {/* Arrow Icon */}
           <div className="flex justify-center items-center" data-aos="fade-up">
-            <GiWideArrowDunk className="text-[#23A6F0] text-[80px]" />
+            <GiWideArrowDunk className="text-blue-400 text-[80px]" />
           </div>
           <div className="text-center my-16 mt-7" data-aos="fade-up">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">
-              We can't wait to meet you
+              We can&apos;t wait to meet you
             </h2>
             <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 mb-4">
-              Let's Talk
+              Let&apos;s Talk
             </h3>
             <button className="px-11 py-3 text-lg bg-blue-500 text-white hover:bg-blue-400 mt-5">
               Try It Free Now
