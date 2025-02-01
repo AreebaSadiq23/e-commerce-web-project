@@ -1,16 +1,18 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FiList, FiGrid } from "react-icons/fi";
 import Image from "next/image";
 import Header from "@/components/header/Header";
 import Link from "next/link";
+import AOS from "aos"; 
+import "aos/dist/aos.css";
 
 const images = [
   "/hero/1.png",
   "/hero/product2.png",
   "/hero/2.png",
   "/hero/3.png",
-  "/hero/4.png",
+  "/hero/4.png"
 ];
 
 interface Product {
@@ -134,10 +136,15 @@ const productsData: Product[] = [
 ];
 
 const HomePage = () => {
+  
   const [products, setProducts] = useState<Product[]>(productsData);
   const [sortOption, setSortOption] = useState<string>("Popularity");
   const [currentPage] = useState<number>(1);
-  const productsPerPage = 8;
+  const productsPerPage = 12;
+
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
   const handleSort = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const option = e.target.value;
@@ -169,7 +176,12 @@ const HomePage = () => {
         {/* Image Layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 justify-center mt-10">
           {images.map((img, index) => (
-            <div key={index} className="relative group">
+            <div
+              key={index}
+              className="relative group"
+              data-aos="fade-up"
+              data-aos-delay={`${index * 200}`}
+            >
               <Image
                 src={img}
                 alt={`Image ${index + 1}`}
@@ -215,7 +227,10 @@ const HomePage = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
           {currentProducts.map((product) => (
             <Link key={product.id} href={`/card/${product.id}`}>
-              <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transform transition-transform hover:scale-105 flex flex-col cursor-pointer">
+              <div
+                className="bg-white rounded-lg shadow-lg hover:shadow-xl transform transition-transform hover:scale-105 flex flex-col cursor-pointer"
+                data-aos="fade-up"
+              >
                 <div className="relative w-full h-72">
                   <Image
                     src={product.image}
@@ -278,4 +293,5 @@ const HomePage = () => {
     </>
   );
 };
+
 export default HomePage;

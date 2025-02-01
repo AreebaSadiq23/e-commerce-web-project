@@ -1,12 +1,21 @@
 import Image from "next/image";
+import { useEffect } from "react";
+import AOS from "aos";
 
 const BannerSection = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   return (
     <div className="bg-emerald-800 py-20 px-6 max-w-screen-2xl mx-auto">
       <div className="container flex flex-wrap items-center">
         {/* Left Section: Text Content */}
-        <div className="w-full md:w-1/2 mb-10 md:mb-0 text-left text-white px-4">
-          <h2 className="text-xl text-white sm:ml-10 lg:ml-48">SUMMER 2020</h2>
+        <div
+          className="w-full md:w-1/2 mb-10 md:mb-0 text-left text-white px-4"
+          data-aos="fade-right" 
+        >
+          <h2 className="text-xl text-white sm:ml-10 lg:ml-48">SUMMER 2025</h2>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold sm:ml-10 lg:ml-48 lg:mt-10">
             Vita Classic
           </h1>
@@ -27,7 +36,10 @@ const BannerSection = () => {
         </div>
 
         {/* Right Section: Image */}
-        <div className="w-full md:w-1/2 flex justify-center sm:mt-8">
+        <div
+          className="w-full md:w-1/2 flex justify-center sm:mt-8"
+          data-aos="fade-left" // Animation on scroll for right section (Image)
+        >
           <Image
             src="/editor/img15.png"
             alt="Banner"

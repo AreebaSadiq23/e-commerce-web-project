@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaRegComment } from "react-icons/fa";
 import { MdAlarm } from "react-icons/md";
 import { IoIosArrowForward } from "react-icons/io";
 import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const FeaturedSection = () => {
   const cardData = [
@@ -32,6 +34,13 @@ const FeaturedSection = () => {
     },
   ];
 
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+    return () => {
+      AOS.refresh(); 
+    };
+  }, []);
+
   return (
     <div className="py-20 px-4 bg-gray-50 max-w-screen-2xl mx-auto">
       {/* Practice Advice Section */}
@@ -52,6 +61,7 @@ const FeaturedSection = () => {
           <div
             key={index}
             className="bg-white rounded-lg shadow-lg overflow-hidden relative group"
+            data-aos="fade-up"
           >
             <Image
               src={card.image}

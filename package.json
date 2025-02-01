@@ -21,6 +21,7 @@
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.70.0",
     "@shadcn/ui": "^0.0.4",
+    "aos": "^2.3.4",
     "axios": "^1.7.9",
     "dotenv": "^16.4.7",
     "lucide-react": "^0.473.0",
@@ -39,6 +40,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

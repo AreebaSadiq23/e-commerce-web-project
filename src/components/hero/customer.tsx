@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
+import AOS from "aos";
 
 const CustomSection = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 }); 
+  }, []);
+
   return (
     <div className="py-20 px-4 bg-gray-100 max-w-screen-2xl mx-auto">
       <div className="flex flex-col md:flex-row items-center justify-between">
         {/* Left Section: Image */}
-        <div className="w-full md:w-1/2 mb-10 md:mb-0 md:ml-24">
+        <div
+          className="w-full md:w-1/2 mb-10 md:mb-0 md:ml-24"
+          data-aos="fade-right" // Animation for the left section (Image)
+        >
           <Image
             src="/editor/img 5.png"
             alt="img"
@@ -17,7 +25,10 @@ const CustomSection = () => {
         </div>
 
         {/* Right Section: Text */}
-        <div className="w-full md:w-1/2 text-center md:text-left">
+        <div
+          className="w-full md:w-1/2 text-center md:text-left"
+          data-aos="fade-left" // Animation for the right section (Text)
+        >
           <h3 className="text-gray-500 text-xl md:text-2xl">SUMMER 2020</h3>
           <h1 className="font-bold text-4xl sm:text-5xl md:text-6xl mt-6 text-slate-800">
             Part of the Neural

@@ -1,25 +1,24 @@
-import React from "react";
+'use client';
+import React, { useEffect } from "react";
 import Image from "next/image";
-import {
-  FaTwitter,
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedin,
-  FaPhoneAlt,
-  FaMapMarkerAlt,
-  FaEnvelope,
-} from "react-icons/fa";
+import { FaTwitter, FaFacebookF, FaInstagram, FaLinkedin, FaPhoneAlt, FaMapMarkerAlt, FaEnvelope } from "react-icons/fa";
 import { GiWideArrowDunk } from "react-icons/gi";
 import Navbar from "../navbar";
+import AOS from "aos"; 
+import "aos/dist/aos.css"; 
 
 const ContactSection: React.FC = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, easing: "ease-in-out" });
+  }, []);
+
   return (
     <>
       <Navbar />
       <section className="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8">
         {/* Left Side Content */}
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 ml-16">
-          <div className="text-left">
+          <div className="text-left" data-aos="fade-right">
             <h3 className="text-xl font-semibold text-gray-700 mb-2 mt-10">
               Contact Us
             </h3>
@@ -53,7 +52,7 @@ const ContactSection: React.FC = () => {
           </div>
 
           {/* Right Side Image */}
-          <div className="relative">
+          <div className="relative" data-aos="fade-left">
             <Image
               src="/hero/img8.png"
               alt="Contact"
@@ -74,7 +73,10 @@ const ContactSection: React.FC = () => {
 
           {/* Contact Cards */}
           <div className="flex flex-col md:flex-row justify-center items-center">
-            <div className="p-4 shadow-lg text-center flex flex-col items-center h-[400px] w-[300] border border-blue-300">
+            <div
+              className="p-4 shadow-lg text-center flex flex-col items-center h-[400px] w-[300] border border-blue-300"
+              data-aos="zoom-in"
+            >
               <FaPhoneAlt className="text-7xl text-blue-400 mb-4 mt-7" />
               <p className="text-lg text-gray-600 mb-2 mt-8 font-bold">
                 georgia.young@example.com
@@ -90,7 +92,10 @@ const ContactSection: React.FC = () => {
               </button>
             </div>
 
-            <div className="bg-gray-800 p-6 shadow-lg text-center flex flex-col items-center h-[450px] w-[300]">
+            <div
+              className="bg-gray-800 p-6 shadow-lg text-center flex flex-col items-center h-[450px] w-[300]"
+              data-aos="zoom-in"
+            >
               <FaMapMarkerAlt className="text-8xl text-blue-400 mb-4 mt-7" />
               <p className="text-lg text-white mb-2 mt-5">
                 georgia.young@example.com
@@ -102,7 +107,10 @@ const ContactSection: React.FC = () => {
               </button>
             </div>
 
-            <div className="p-6 shadow-lg text-center flex flex-col items-center h-[400px] w-[300] border border-blue-300">
+            <div
+              className="p-6 shadow-lg text-center flex flex-col items-center h-[400px] w-[300] border border-blue-300"
+              data-aos="zoom-in"
+            >
               <FaEnvelope className="text-8xl text-blue-400 mb-4 mt-7" />
               <p className="text-lg text-gray-700 mb-2 font-bold mt-3">
                 georgia.young@example.com
@@ -123,10 +131,10 @@ const ContactSection: React.FC = () => {
         {/* Final Call-to-Action */}
         <div className="mt-10 py-10 text-center">
           {/* Arrow Icon */}
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center" data-aos="fade-up">
             <GiWideArrowDunk className="text-[#23A6F0] text-[80px]" />
           </div>
-          <div className="text-center my-16 mt-7">
+          <div className="text-center my-16 mt-7" data-aos="fade-up">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">
               We can&apos;t wait to meet you
             </h2>
@@ -144,3 +152,4 @@ const ContactSection: React.FC = () => {
 };
 
 export default ContactSection;
+

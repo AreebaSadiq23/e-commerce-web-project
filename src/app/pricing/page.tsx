@@ -1,4 +1,8 @@
+'use client';
+import React, { useEffect } from 'react';
 import Image from "next/image";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import {
   FaCheck,
@@ -9,13 +13,21 @@ import {
 } from "react-icons/fa";
 import Navbar from "../navbar";
 
+
 const PricingSection: React.FC = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true, 
+    });
+  }, []);
+
   return (
     <>
       <Navbar />
       <div className="bg-gray-50 py-20 px-6 max-w-screen-2xl mx-auto">
         {/* Pricing Header */}
-        <div className="text-center">
+        <div className="text-center" data-aos="fade-up">
           <h3 className="text-1xl font-bold text-gray-500">PRICING</h3>
           <h2 className="text-5xl font-bold text-gray-800 mt-4">
             Simple Pricing
@@ -28,7 +40,7 @@ const PricingSection: React.FC = () => {
             Problems trying to resolve the conflict between <br />
             the two major realms of Classical physics: Newtonian mechanics
           </p>
-          <div className="flex justify-center items-center gap-4 mt-6">
+          <div className="flex justify-center items-center gap-4 mt-6" data-aos="fade-up">
             <span className="text-gray-600">Monthly</span>
             <button className="bg-gray-200 px-4 py-1 text-xs text-gray-700 rounded-full font-medium">
               save 25%
@@ -41,9 +53,9 @@ const PricingSection: React.FC = () => {
         </div>
 
         {/* Pricing Cards */}
-        <div className="flex flex-col md:flex-row justify-center items-center mt-12">
+        <div className="flex flex-col md:flex-row justify-center items-center mt-12" data-aos="fade-up">
           {/* Card 1 */}
-          <div className="bg-white rounded-lg shadow-md p-6 w-full md:w-1/5 h-[30rem] border border-blue-300">
+          <div className="bg-white rounded-lg shadow-md p-6 w-full md:w-1/5 h-[30rem] border border-blue-300" data-aos="zoom-in">
             <h4 className="text-center text-2xl font-bold text-gray-800 mt-4">
               Free
             </h4>
@@ -82,7 +94,7 @@ const PricingSection: React.FC = () => {
           </div>
 
           {/* Card 2 - Center Card (Dark Color) */}
-          <div className="bg-gray-800 text-white rounded-lg shadow-lg p-8 transform scale-105 w-full md:w-1/5 h-[33rem] border border-gray-300">
+          <div className="bg-gray-800 text-white rounded-lg shadow-lg p-8 transform scale-105 w-full md:w-1/5 h-[33rem] border border-gray-300" data-aos="zoom-in">
             <h4 className="text-center text-3xl font-bold mt-10">Standard</h4>
             <p className="text-center mt-10">
               Organize across all <br />
@@ -119,7 +131,7 @@ const PricingSection: React.FC = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="bg-white rounded-lg shadow-md p-6 w-full md:w-1/5 h-[30rem] border border-blue-300">
+          <div className="bg-white rounded-lg shadow-md p-6 w-full md:w-1/5 h-[30rem] border border-blue-300" data-aos="zoom-in">
             <h4 className="text-center text-2xl font-bold text-gray-800 mt-6">
               Premium
             </h4>
@@ -159,12 +171,12 @@ const PricingSection: React.FC = () => {
         </div>
 
         {/* Trusted Logos */}
-        <div className="text-center mt-32">
+        <div className="text-center mt-32"data-aos="fade-up">
           <h3 className="text-gray-800 text-xl font-bold">
             Trusted By Over 4000 Big Companies
           </h3>
           <div className="flex justify-center items-center mt-6 gap-24">
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center"data-aos="fade-right">
               <Image
                 src="/logo/1.png"
                 alt="Company Logo 1"
@@ -173,7 +185,7 @@ const PricingSection: React.FC = () => {
                 className="object-contain"
               />
             </div>
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center"data-aos="fade-left">
               <Image
                 src="/logo/2.png"
                 alt="Company Logo 2"
@@ -182,7 +194,7 @@ const PricingSection: React.FC = () => {
                 className="object-contain"
               />
             </div>
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center" data-aos="fade-right">
               <Image
                 src="/logo/3.png"
                 alt="Company Logo 3"
@@ -191,7 +203,7 @@ const PricingSection: React.FC = () => {
                 className="object-contain"
               />
             </div>
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center" data-aos="fade-left">
               <Image
                 src="/logo/4.png"
                 alt="Company Logo 4"
@@ -200,7 +212,7 @@ const PricingSection: React.FC = () => {
                 className="object-contain"
               />
             </div>
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center" data-aos="fade-right">
               <Image
                 src="/logo/5.png"
                 alt="Company Logo 5"
@@ -209,7 +221,7 @@ const PricingSection: React.FC = () => {
                 className="object-contain"
               />
             </div>
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center" data-aos="fade-left">
               <Image
                 src="/logo/6.png"
                 alt="Company Logo 6"
@@ -222,7 +234,7 @@ const PricingSection: React.FC = () => {
         </div>
 
         {/* FAQ Section */}
-        <div className="mt-28">
+        <div className="mt-28" data-aos="fade-right">
           <h3 className="text-center text-4xl font-bold text-black">
             Pricing FAQs
           </h3>
@@ -232,7 +244,7 @@ const PricingSection: React.FC = () => {
           </p>
 
           {/* Text layout with left and right sides */}
-          <div className="flex justify-between mt-10">
+          <div className="flex justify-between mt-10" data-aos="fade-up"> 
             {/* Left side with 3 repetitions */}
             <div className="w-full sm:w-1/2 lg:w-1/2 text-left ml-20 mb-10 sm:mb-0">
               <h2 className="text-lg font-semibold mb-3 text-gray-800">
@@ -276,7 +288,7 @@ const PricingSection: React.FC = () => {
             </div>
 
             {/* Right side with 3 repetitions */}
-            <div className="w-full sm:w-1/2 lg:w-1/2 text-left ml-20 mb-10 sm:mb-0">
+            <div className="w-full sm:w-1/2 lg:w-1/2 text-left ml-20 mb-10 sm:mb-0" data-aos="fade-up">
               <h2 className="text-lg font-semibold mb-3 text-gray-800">
                 <span className="text-blue-500 font-semibold text-2xl">
                   &gt;{" "}
@@ -319,7 +331,7 @@ const PricingSection: React.FC = () => {
           </p>
 
           {/* Free Trial */}
-          <div className="text-center mt-32">
+          <div className="text-center mt-32" data-aos="fade-up">
             <h3 className="text-3xl font-bold text-gray-800">
               Start your 14 days free trial
             </h3>
