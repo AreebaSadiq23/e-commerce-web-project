@@ -15,35 +15,49 @@ const HeroSection = () => {
 
   return (
     <>
-      <div className="relative bg-blue-400 py-20 md:py-40 max-w-screen-2xl mx-auto">
+      <div className="relative bg-blue-400 py-16 md:py-32 lg:py-40 max-w-screen-2xl mx-auto">
+        {/* Background Image */}
         <div className="absolute inset-0 w-full h-full">
           <Image
             src="/hero/img 2.png"
             alt="New Collection"
             layout="fill"
             objectFit="cover"
-            className="shadow-lg"
+            className="w-full h-full object-cover"
+            priority
           />
         </div>
 
-        <div className="container mx-auto relative z-10 flex flex-col lg:flex-row items-center justify-center lg:justify-between px-4 md:px-6">
+        {/* Content */}
+        <div className="container mx-auto relative z-10 flex flex-col lg:flex-row items-center justify-center lg:justify-between px-4 sm:px-6 md:px-8 lg:px-12">
           {/* Left Section: Text Content */}
           <div
-            className="text-center lg:text-left w-full lg:w-1/2 space-y-4 md:space-y-6 mt-10 lg:mt-0 lg:ml-10"
+            className="text-center lg:text-left w-full lg:w-1/2 space-y-4 md:space-y-6 mt-6 md:mt-10 lg:mt-0"
             data-aos="fade-up" 
           >
-            <h5 className="text-amber-200 text-lg md:text-xl lg:text-2xl">SUMMER 2025</h5>
-            <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-6 md:mb-10" data-aos="fade-up" data-aos-delay="200">
+            <h5 className="text-amber-200 text-lg sm:text-xl md:text-2xl">
+              SUMMER 2025
+            </h5>
+            <h1 
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-8"
+              data-aos="fade-up" 
+              data-aos-delay="200"
+            >
               New Collection
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl text-white leading-relaxed" data-aos="fade-up" data-aos-delay="400">
-              We know how large objects will act, <br className="hidden md:block" />
+            <p 
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-white leading-relaxed"
+              data-aos="fade-up" 
+              data-aos-delay="400"
+            >
+              We know how large objects will act, <br className="hidden sm:block" />
               but things on a scale.
             </p>
+
             {/* Shop Now Button */}
             <a
               href="/products"
-              className="inline-block mt-4 md:mt-6 px-6 md:px-10 py-3 md:py-4 text-amber-200 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-md hover:from-purple-500 hover:to-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-base md:text-lg font-semibold"
+              className="inline-block w-full sm:w-auto mt-4 md:mt-6 px-6 md:px-10 py-3 md:py-4 text-amber-200 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-md hover:from-purple-500 hover:to-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-base md:text-lg font-semibold"
               data-aos="fade-up" 
               data-aos-delay="600"
             >
@@ -52,6 +66,8 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+      
+      {/* Additional Sections */}
       <CardSection />
       <BannerSection />
       <CustomSection />

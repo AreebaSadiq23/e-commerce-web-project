@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
-import AOS from "aos"; 
+import AOS from "aos";
 import "aos/dist/aos.css";
 
 interface Product {
@@ -30,7 +30,7 @@ const products: Product[] = [
 
 export default function ProductSearch() {
   useEffect(() => {
-    AOS.init(); 
+    AOS.init();
   }, []);
 
   return (
@@ -40,7 +40,7 @@ export default function ProductSearch() {
           <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up">
             <Link href={`/card/${product.id}`}>
               <div className="hover:scale-105 transform transition-transform cursor-pointer">
-                <div className="relative w-full h-56 sm:h-72" data-aos="zoom-in" data-aos-delay="100">
+                <div className="relative w-full h-[250px] sm:h-72" data-aos="zoom-in" data-aos-delay="100">
                   <Image
                     src={product.image || "/placeholder.svg"}
                     alt={product.title}
@@ -49,8 +49,8 @@ export default function ProductSearch() {
                     className="rounded-t-lg"
                   />
                 </div>
-                <div className="p-4 sm:p-6">
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-800" data-aos="fade-up" data-aos-delay="300">
+                <div className="p-3 sm:p-6">
+                  <h3 className="text-sm sm:text-lg font-semibold text-gray-800" data-aos="fade-up" data-aos-delay="300">
                     {product.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-500 mt-1" data-aos="fade-up" data-aos-delay="400">
