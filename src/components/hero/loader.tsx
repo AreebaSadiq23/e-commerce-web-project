@@ -1,14 +1,18 @@
-"use client"
+'use client'
 import React, { useEffect, useState } from "react";
 
 function Loader() {
-  const [isClient, setIsClient] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setIsClient(true);
+   const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
   }, []);
 
-  if (!isClient) return null; 
+  if (!loading) return null; // Render nothing if not loading
 
   return (
     <div className="flex items-center justify-center h-screen bg-gradient-to-br from-gray-100 to-gray-300">
