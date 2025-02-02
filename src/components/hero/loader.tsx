@@ -2,17 +2,13 @@
 import React, { useEffect, useState } from "react";
 
 function Loader() {
-  const [loading, setLoading] = useState(true);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-   const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
+    setIsClient(true);
   }, []);
 
-  if (!loading) return null; // Render nothing if not loading
+  if (!isClient) return null; 
 
   return (
     <div className="flex items-center justify-center h-screen bg-gradient-to-br from-gray-100 to-gray-300">
