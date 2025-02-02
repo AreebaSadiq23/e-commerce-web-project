@@ -1,6 +1,15 @@
-import React from 'react';
+"use client"
+import React, { useEffect, useState } from "react";
 
 function Loader() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) return null; 
+
   return (
     <div className="flex items-center justify-center h-screen bg-gradient-to-br from-gray-100 to-gray-300">
       <div className="flex flex-col gap-4 w-full items-center justify-center">
