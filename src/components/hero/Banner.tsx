@@ -38,7 +38,7 @@ const BannerSection = () => {
         {/* Right Section: Image */}
         <div
           className="w-full md:w-1/2 flex justify-center sm:mt-8"
-          data-aos="fade-left" // Animation on scroll for right section (Image)
+          data-aos="fade-left" 
         >
           <Image
             src="/editor/img15.png"

@@ -9,7 +9,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<
-    { id: number; title: string }[] 
+    { id: number; title: string }[]
   >([]);
   const { isLoggedIn, logout, cart, user, wishlist } = useAppContext();
   const wishlistCount = wishlist?.length || 0;
@@ -19,19 +19,19 @@ export default function Header() {
 
   const products = useMemo(
     () => [
-    { id: 1, title: "Maxi Dress" },
-    { id: 2, title: "Trendy Outfit" },
-    { id: 3, title: "Men Fashion" },
-    { id: 4, title: "Kids Collection" },
-    { id: 5, title: "Winter Collection" },
-    { id: 6, title: "Luxury Clothing" },
-    { id: 7, title: "Girls Kurti" },
-    { id: 8, title: "Designer Dress" },
-    { id: 9, title: "Casual Jacket" },
-    { id: 10, title: "Woman Dress" },
-    { id: 11, title: "Party Dress" },
-    { id: 12, title: "Shirt" },
-  ],
+      { id: 1, title: "Maxi Dress" },
+      { id: 2, title: "Trendy Outfit" },
+      { id: 3, title: "Men Fashion" },
+      { id: 4, title: "Kids Collection" },
+      { id: 5, title: "Winter Collection" },
+      { id: 6, title: "Luxury Clothing" },
+      { id: 7, title: "Girls Kurti" },
+      { id: 8, title: "Designer Dress" },
+      { id: 9, title: "Casual Jacket" },
+      { id: 10, title: "Woman Dress" },
+      { id: 11, title: "Party Dress" },
+      { id: 12, title: "Shirt" },
+    ],
     []
   );
 
@@ -107,8 +107,8 @@ export default function Header() {
               >
                 Pricing
               </Link>
-              </li>
-            </ul>
+            </li>
+          </ul>
         </nav>
 
         {/* Desktop Icons & Search Bar */}
@@ -247,9 +247,7 @@ export default function Header() {
               </Link>
             </li>
           </ul>
-          
         </nav>
-        
       )}
     </header>
   );

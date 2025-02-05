@@ -37,7 +37,7 @@ const FeaturedSection = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
     return () => {
-      AOS.refresh(); 
+      AOS.refresh();
     };
   }, []);
 

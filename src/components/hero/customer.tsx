@@ -38,7 +38,8 @@ const CustomSection = () => {
             Universe
           </h1>
           <p className="text-base sm:text-lg text-gray-600 mt-6 text-center md:text-left">
-            We know how large objects will act, <br className="hidden sm:block" /> 
+            We know how large objects will act,{" "}
+            <br className="hidden sm:block" />
             but things on a small scale.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row justify-center md:justify-start w-full gap-4">

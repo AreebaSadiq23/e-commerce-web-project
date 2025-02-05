@@ -1,5 +1,6 @@
 import React from "react";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FiHeart } from "react-icons/fi";
 
 const Footer = () => {
   return (
@@ -73,8 +74,11 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom Section */}
-      <div className="text-center text-md text-cyan-800 mt-12 font-semibold">
-       <p>Made With Love By Areeba. All Rights Reserved</p>
+      <div className="text-center text-md text-cyan-600 mt-12 font-light">
+        <p>
+          Made With Love By Areeba{" "}
+          <FiHeart className="inline text-red-500 mx-1" />. All Rights Reserved
+        </p>
       </div>
     </footer>
   );
