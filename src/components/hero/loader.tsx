@@ -1,4 +1,5 @@
-"use client";
+"use client"; 
+
 import React, { useEffect, useState } from "react";
 
 function Loader() {
@@ -11,8 +12,6 @@ function Loader() {
 
     return () => clearTimeout(timer);
   }, []);
-
-  if (typeof window === "undefined") return null; 
 
   if (!loading) return null;
 

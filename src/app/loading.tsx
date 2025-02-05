@@ -1,6 +1,4 @@
-import dynamic from "next/dynamic";
-
-const Loader = dynamic(() => import("@/components/hero/loader"), { ssr: false });
+import Loader from "@/components/hero/loader"; 
 
 function Loading() {
   return <Loader />;
