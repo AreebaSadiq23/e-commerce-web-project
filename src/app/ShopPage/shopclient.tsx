@@ -151,9 +151,9 @@ const HomePage = () => {
     setSortOption(option);
 
     let sortedProducts = [...products];
-    if (option === "High to Low") {
+    if (option === "Low to High") {
       sortedProducts.sort((a, b) => b.price - a.price);
-    } else if (option === "Low to High") {
+    } else if (option === "High to Low") {
       sortedProducts.sort((a, b) => a.price - b.price);
     } else {
       sortedProducts = productsData;
@@ -214,13 +214,13 @@ const HomePage = () => {
           </div>
 
           <select
-            className="bg-gray-200 p-2 rounded mt-7"
+            className="bg-white border border-gray-400 text-gray-700 p-3 rounded-lg mt-7 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
             value={sortOption}
             onChange={handleSort}
           >
             <option className="bg-gray-200 p-2">Popularity</option>
-            <option>High to Low</option>
-            <option>Low to High</option>
+            <option className="bg-white text-gray-700">High to Low</option>
+            <option className="bg-white text-gray-700">Low to High</option>
           </select>
         </div>
 

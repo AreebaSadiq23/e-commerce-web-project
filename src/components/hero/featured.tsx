@@ -74,26 +74,26 @@ const FeaturedSection = () => {
               New
             </span>
             <div className="p-4">
-              <p className="text-sm text-gray-500 mb-2">
+              <p className="text-sm text-gray-500 mb-2" data-aos="fade-up">
                 <span className="text-blue-500 mr-4">Google</span>
                 <span className="mx-4">Trending</span>
                 <span className="mx-4">New</span>
               </p>
-              <h4 className="text-4xl font-semibold text-gray-800 mt-6">
+              <h4 className="text-4xl font-semibold text-gray-800 mt-6" data-aos="zoom-in" data-aos-delay="100">
                 {card.title}
               </h4>
-              <p className="mt-6">{card.description}</p>
+              <p className="mt-6"data-aos="zoom-in" data-aos-delay="200">{card.description}</p>
               <div className="flex justify-between items-center text-sm text-gray-500 mt-2">
-                <div className="flex items-center mt-6">
+                <div className="flex items-center mt-6" data-aos="zoom-in" data-aos-delay="300">
                   <MdAlarm className="text-green-500 mr-2" />
                   <span>{card.date}</span>
                 </div>
-                <div className="flex items-center mt-6">
+                <div className="flex items-center mt-6"data-aos="zoom-in" data-aos-delay="400">
                   <FaRegComment className="text-green-500 mr-2" />
                   <span>{card.comments}</span>
                 </div>
               </div>
-              <a href="#" className="mt-6 text-blue-600 flex items-center">
+              <a href="#" className="mt-6 text-blue-600 flex items-center" data-aos="zoom-in" data-aos-delay="500">
                 Learn More <IoIosArrowForward className="ml-2" />
               </a>
             </div>
